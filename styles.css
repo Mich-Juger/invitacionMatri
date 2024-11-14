@@ -1,261 +1,395 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Responsive Body */
-  body {
-    font-family: Arial, sans-serif;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
-    scroll-behavior: smooth;
-    background-color: #f5f5f5;
-  }
-  
-  /* Section Styles */
-  .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0px;
-    text-align: center;
-    scroll-snap-align: start;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .section:nth-child(odd) {
-    background-color: #fff;
-  }
-  
-  h1, h2 {
-    color: #b76e79;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 1.1em;
-    line-height: 1.5;
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  /* Button Styles */
-  button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #b76e79;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    width: 80%;
-  }
-  
-  button:hover {
-    background-color: #a85d6b;
-  }
-  
-  .confirmation {
-    margin-top: 20px;
-    font-size: 1em;
-    color: green;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 1.8em;
-    }
-    
-    h2 {
-      font-size: 1.5em;
-    }
-  
-    p, button {
-      font-size: 1em;
-    }
-  
-    button {
-      padding: 12px 20px;
-    }
-  }
-  #countdown {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
-  }
-  
-  .time-part {
-    text-align: center;
-  }
-  
-  .number {
-    font-size: 2em;
-    font-weight: bold;
-  }
-  
-  .label {
-    font-size: 1em;
-    color: #333;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .calendar-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #b76e79;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1em;
-  }
-  
-  .calendar-button:hover {
-    background-color: #a85d6b;
-  }
-  
-  #parents-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-  }
-  
-  #parents-section h2 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: #b76e79;
-  }
-  
-  #parents-section p {
-    font-size: 1em;
-    color: #333;
-    margin: 5px 0;
-  }
-  
- 
+/* Responsive Body */
+body {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+/* Section Styles */
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  text-align: center;
+  scroll-snap-align: start;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section:nth-child(odd) {
+  background-color: #fff;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1, h2 {
+  color: #2a6880;
+  margin-bottom: 10px;
+  font-family: "Tangerine", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 54px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: #2a6880;
+  margin-bottom: 15px;
+  font-family: "Funnel Display", sans-serif;
+}
+
+.fechaBoda {
+  font-size: 32px;
+  color: burlywood ;
 
 
+}
 
+.fechaBoda1{
+  font-size: 24px;
+  color: burlywood ;
+}
+/* Button Styles - Button One */
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+  margin: 10px;
+  
+}
 
+.btn-one {
+  color: #FFF;
+  transition: all 0.3s;
+  position: relative;
+  background-color: #2a6880;
+}
 
+.btn-one span {
+  transition: all 0.3s;
+}
 
-  /* Contenedor principal de la sección de Itinerario */
+.btn-one::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.1, 1);
+}
+
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.btn-one::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+/* Confirmation and Hidden Elements */
+.confirmation {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #2a6880;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Countdown Section */
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.time-part {
+  text-align: center;
+}
+
+.number {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Calendar Button */
+.calendar-button {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Parents Section */
+#parents-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+#parents-section h2 {
+  margin-bottom: 10px;
+  color: #2a6880;
+  padding: 10px;
+}
+
+#parents-section p {
+  font-size: 1em;
+  color: #2a6880;
+  margin: 5px 0;
+}
+
+/* Itinerary Section */
 #itinerary-section {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
 }
-  
-/* Contenedor que incluye la imagen y el itinerario */
+
 .itinerary-content {
-    display: flex;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
 }
-  
-/* Imagen a la izquierda ocupando el 40% de ancho y el 100% de altura */
+
 .itinerary-image-container {
-    flex: 0 0 40%;
-    height: 100%; /* Para que la imagen ocupe la altura total del contenedor */
-    overflow: hidden; /* Oculta cualquier desbordamiento de la imagen */
+  flex: 0 0 40%;
+  height: 100%;
+  overflow: hidden;
 }
-  
+
 .itinerary-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-  
-/* Cuadro de texto del itinerario ocupando el 60% */
+
 .itinerary-container {
-    flex: 0 0 60%;
-    padding: 20px;
-    border: 1px solid #2a6880;
-    border-radius: 3px;
-    text-align: center;
-    background-color: #ffffff;
-    margin-left: 10px;
-
-    /* Centrado vertical y horizontal */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex: 0 0 60%;
+  padding: 20px;
+  border: 1px solid #2a6880;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #ffffff;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-  
+
 .itinerary-container h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2a6880;
-    margin-bottom: 10px;
-    letter-spacing: 0.1em;
-    padding-bottom: 20px;
+  font-size: 54px;
+  font-weight: bold;
+  color: #2a6880;
+  margin-bottom: 10px;
+  letter-spacing: 0.1em;
+  padding-bottom: 20px;
 }
-  
+
 .decorative-line {
-    font-size: 20px;
-    color: #2a6880;
-    margin-bottom: 20px;
+  font-size: 20px;
+  color: #2a6880;
+  margin-bottom: 20px;
 }
-  
-/* Estilos de la línea de tiempo */
+
+/* Timeline Section */
 .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-  
+
 .timeline-event {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-  
+
 .timeline-event .time {
-    font-size: 18px;
-    font-weight: bold;
-    color: #2a6880;
-    margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a6880;
+  margin-bottom: 5px;
+  font-family: "Tangerine", cursive;
+
 }
-  
+
 .timeline-event .description {
-    font-size: 16px;
-    color: #4d4d4d;
+  font-size: 36px;
+  color: #2a6880;
+  font-family: "Tangerine", cursive;
+ 
+}
+
+.overlay-content {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita el desbordamiento */
+}
+
+.nos-casamos-image {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax Section */
+.parallax-section {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dress Code Section */
+#vestimenta-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.dress-code-image {
+  max-width: 80%;
+  height: auto;
+  margin-top: 15px;
+}
+
+/* Video Map */
+.videoMapa {
+  width: 85%;
+  height: 60%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  h1 {
+      font-size: 1.8em;
+  }
+
+  h2 {
+      font-size: 3em;
+  }
+
+  p,
+  button {
+      font-size: 1em;
+  }
+
+  button {
+      padding: 12px 20px;
+  }
+}
+
+/* Comparte Tus Fotos */
+#comparteTusFotos {
+  background-color: #ffffff;
+}
+
+/* Confirma Asistencia */
+#confirmaTuAsistencia {
+  background-color: #ffffff;
 }
 
 
+.shadow-box {
+  padding: 30px;
+  border: 0.2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  max-width: 600px;
+  text-align: center;
+}
 
 
-/* Contenedor de la sección Nos Casamos */
-.overlay-content {
-    position: relative;
-    width: 100%;       /* Ajusta el ancho al contenedor */
-    height: 100vh;     /* Ocupa toda la altura de la pantalla */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  /* Video dentro del contenedor, ocupando todo el espacio */
-  .nos-casamos-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que el video ocupe todo el contenedor sin distorsionarse */
-  }
-  
-  
+/* Video Map */
+.videoMapa {
+  width: 100%;
+  height: 50%;
+}
+
+/* Video Map */
