@@ -21,14 +21,38 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 0;
+  padding: 40px;
   text-align: center;
-  scroll-snap-align: start;
   max-width: 100%;
   margin: 0;
-  opacity: 1; /* Quita la opacidad inicial */
-  transform: none; /* Quita la transformación inicial */
-  transition: none; /* Quita cualquier transición */
+}
+
+/* Fondo para "Padres y Padrinos" */
+.parents-section {
+  position: relative;
+  color: #2a6880;
+  overflow: hidden;
+}
+
+/* Imagen de fondo para la sección "Padres y Padrinos" */
+.parents-section .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/White\ 2\ Invitation.svg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Coloca la imagen de fondo detrás del contenido */
+}
+
+.parents-section h2,
+.parents-section p,
+.parents-section .elegant-card {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
 }
 
 h1, h2 {
@@ -52,21 +76,31 @@ p {
   color: burlywood;
 }
 
-/* Estilos para la sección con imagen de fondo fija */
-.section {
+
+/* Lugar y Ubicacion*/
+
+/* Estilos para la sección 2 con imagen de fondo */
+.section-2 {
   position: relative;
   padding: 40px;
   text-align: center;
   color: #ffffff;
-  background-image: url('images/Blue\ Wedding\ Facebook\ Cover.svg'); /* Ruta de la imagen de fondo */
+  background-image: url('images/White\ 4.png'); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
 }
 
-/* Superposición semi-transparente */
-.section::before {
+.section-2 .shadow-box, 
+.section-2 h2, 
+.section-2 p, 
+.section-2 a {
+  position: relative;
+  z-index: 2; /* Asegura que el contenido esté sobre la imagen de fondo */
+}
+
+/* Opcional: superposición semi-transparente */
+.section-2::before {
   content: "";
   position: absolute;
   top: 0;
@@ -76,81 +110,20 @@ p {
   z-index: 1;
 }
 
-.section h2, 
-.section p, 
-.section a {
-  position: relative;
-  z-index: 2; /* Asegura que el contenido esté sobre la superposición */
-}
-
-.fechaBoda {
-  font-size: 24px;
-  margin-top: 10px;
-}
-
-.btn-one {
-  color: #ffffff;
-  background-color: #2a6880;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 20px;
-  transition: background-color 0.3s;
-}
-
-.btn-one:hover {
-  background-color: #1f5160;
-}
-
-/* Shadow Box para la sección de "Nuestra Boda será el sábado" */
+/* Shadow Box para cuadro de texto */
 .shadow-box {
   padding: 30px;
   border-radius: 12px;
   background-color: #ffffff;
+  color: #2a6880;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   max-width: 600px;
   margin: 20px auto;
   text-align: center;
+  
 }
 
-
-
-/* Estilos para la sección Lugar y Fecha con imagen de fondo */
-.section {
-  position: relative;
-  padding: 40px;
-  text-align: center;
-  color: #ffffff;
-  background-image: url('images/Blue\ Wedding\ Facebook\ Cover.svg'); /* Ruta de la imagen de fondo */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Superposición semi-transparente */
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.section h2, 
-.section p, 
-.section a {
-  position: relative;
-  z-index: 2; /* Asegura que el contenido esté sobre la superposición */
-}
-
-.fechaBoda {
-  font-size: 24px;
-  margin-top: 10px;
-}
-
+/* Botón Estilos */
 .btn-one {
   color: #ffffff;
   background-color: #2a6880;
@@ -167,26 +140,6 @@ p {
 }
 
 
-
-/* Button Styles */
-.btn {
-  line-height: 50px;
-  height: 50px;
-  text-align: center;
-  width: 250px;
-  cursor: pointer;
-  font-family: 'Open Sans Condensed', sans-serif;
-  margin: 20px auto; /* Espacio alrededor y centrado del botón */
-  background-color: #2a6880;
-  color: #FFF;
-  border: none;
-  border-radius: 5px;
-  transition: all 0.3s;
-}
-
-.btn:hover {
-  background-color: #1d4d60;
-}
 
 /* Confirmation and Hidden Elements */
 .confirmation {
@@ -221,16 +174,6 @@ p {
   color: #333;
 }
 
-
-/* Padres y Padrinos*/
-
-
-
-
-/* FIN EN COMPANIA DE NUETSROS PADRES*/
-
-
-
 /* Overlay Content for "Nos Casamos" */
 .overlay-content {
   position: relative;
@@ -250,12 +193,12 @@ p {
   object-fit: cover;
 }
 
-
 /* Dress Code Section */
 #vestimenta-section {
   text-align: center;
   padding: 20px;
   margin: 0;
+  background-color: antiquewhite;
 }
 
 .dress-code-image {
@@ -264,7 +207,6 @@ p {
   height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
   margin-top: 15px;
 }
-
 
 /* Video Map */
 .videoMapa {
@@ -277,20 +219,20 @@ p {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
   h1 {
-      font-size: 1.8em;
+    font-size: 1.8em;
   }
 
   h2 {
-      font-size: 3em;
+    font-size: 3em;
   }
 
   p,
   button {
-      font-size: 1em;
+    font-size: 1em;
   }
 
   button {
-      padding: 12px 20px;
+    padding: 12px 20px;
   }
 }
 
@@ -305,6 +247,3 @@ p {
   background-color: #ffffff;
   margin: 0;
 }
-
-
-
