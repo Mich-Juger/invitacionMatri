@@ -24,20 +24,11 @@ body {
   padding: 0;
   text-align: center;
   scroll-snap-align: start;
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.section:nth-child(odd) {
-  background-color: #fff;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+  max-width: 100%;
+  margin: 0;
+  opacity: 1; /* Quita la opacidad inicial */
+  transform: none; /* Quita la transformación inicial */
+  transition: none; /* Quita cualquier transición */
 }
 
 h1, h2 {
@@ -45,7 +36,6 @@ h1, h2 {
   margin-bottom: 10px;
   font-family: "Tangerine", cursive;
   font-weight: 400;
-  font-style: normal;
   font-size: 54px;
 }
 
@@ -59,81 +49,143 @@ p {
 
 .fechaBoda {
   font-size: 32px;
-  color: burlywood ;
-
-
+  color: burlywood;
 }
 
-.fechaBoda1{
+/* Estilos para la sección con imagen de fondo fija */
+.section {
+  position: relative;
+  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+  background-image: url('images/Blue\ Wedding\ Facebook\ Cover.svg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
+}
+
+/* Superposición semi-transparente */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.section h2, 
+.section p, 
+.section a {
+  position: relative;
+  z-index: 2; /* Asegura que el contenido esté sobre la superposición */
+}
+
+.fechaBoda {
   font-size: 24px;
-  color: burlywood ;
+  margin-top: 10px;
 }
-/* Button Styles - Button One */
+
+.btn-one {
+  color: #ffffff;
+  background-color: #2a6880;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-one:hover {
+  background-color: #1f5160;
+}
+
+/* Shadow Box para la sección de "Nuestra Boda será el sábado" */
+.shadow-box {
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+
+
+/* Estilos para la sección Lugar y Fecha con imagen de fondo */
+.section {
+  position: relative;
+  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+  background-image: url('images/Blue\ Wedding\ Facebook\ Cover.svg'); /* Ruta de la imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Superposición semi-transparente */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.section h2, 
+.section p, 
+.section a {
+  position: relative;
+  z-index: 2; /* Asegura que el contenido esté sobre la superposición */
+}
+
+.fechaBoda {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.btn-one {
+  color: #ffffff;
+  background-color: #2a6880;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.btn-one:hover {
+  background-color: #1f5160;
+}
+
+
+
+/* Button Styles */
 .btn {
   line-height: 50px;
   height: 50px;
   text-align: center;
   width: 250px;
   cursor: pointer;
-    font-family: 'Open Sans Condensed', sans-serif;
-  margin: 10px;
-  
-}
-
-.btn-one {
-  color: #FFF;
-  transition: all 0.3s;
-  position: relative;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 20px auto; /* Espacio alrededor y centrado del botón */
   background-color: #2a6880;
-}
-
-.btn-one span {
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
   transition: all 0.3s;
 }
 
-.btn-one::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
-  transition: all 0.3s;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-top-color: rgba(255, 255, 255, 0.5);
-  border-bottom-color: rgba(255, 255, 255, 0.5);
-  transform: scale(0.1, 1);
-}
-
-.btn-one:hover span {
-  letter-spacing: 2px;
-}
-
-.btn-one:hover::before {
-  opacity: 1;
-  transform: scale(1, 1);
-}
-
-.btn-one::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.3s;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.btn-one:hover::after {
-  opacity: 0;
-  transform: scale(0.1, 1);
+.btn:hover {
+  background-color: #1d4d60;
 }
 
 /* Confirmation and Hidden Elements */
@@ -169,117 +221,17 @@ p {
   color: #333;
 }
 
-/* Calendar Button */
-.calendar-button {
-  display: inline-block;
-  text-decoration: none;
-}
 
-/* Parents Section */
-#parents-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-  background-color: #ffffff;
-}
+/* Padres y Padrinos*/
 
-#parents-section h2 {
-  margin-bottom: 10px;
-  color: #2a6880;
-  padding: 10px;
-}
 
-#parents-section p {
-  font-size: 1em;
-  color: #2a6880;
-  margin: 5px 0;
-}
 
-/* Itinerary Section */
-#itinerary-section {
-  display: flex;
-  justify-content: center;
-  background-color: #ffffff;
-}
 
-.itinerary-content {
-  display: flex;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-}
+/* FIN EN COMPANIA DE NUETSROS PADRES*/
 
-.itinerary-image-container {
-  flex: 0 0 40%;
-  height: 100%;
-  overflow: hidden;
-}
 
-.itinerary-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.itinerary-container {
-  flex: 0 0 60%;
-  padding: 20px;
-  border: 1px solid #2a6880;
-  border-radius: 3px;
-  text-align: center;
-  background-color: #ffffff;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.itinerary-container h2 {
-  font-size: 54px;
-  font-weight: bold;
-  color: #2a6880;
-  margin-bottom: 10px;
-  letter-spacing: 0.1em;
-  padding-bottom: 20px;
-}
-
-.decorative-line {
-  font-size: 20px;
-  color: #2a6880;
-  margin-bottom: 20px;
-}
-
-/* Timeline Section */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.timeline-event {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.timeline-event .time {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2a6880;
-  margin-bottom: 5px;
-  font-family: "Tangerine", cursive;
-
-}
-
-.timeline-event .description {
-  font-size: 36px;
-  color: #2a6880;
-  font-family: "Tangerine", cursive;
- 
-}
-
+/* Overlay Content for "Nos Casamos" */
 .overlay-content {
   position: relative;
   width: 100%;
@@ -287,7 +239,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Evita el desbordamiento */
+  overflow: hidden;
+  margin: 0;
 }
 
 .nos-casamos-image {
@@ -297,51 +250,28 @@ p {
   object-fit: cover;
 }
 
-/* Animations */
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Parallax Section */
-.parallax-section {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
 
 /* Dress Code Section */
 #vestimenta-section {
   text-align: center;
   padding: 20px;
+  margin: 0;
 }
 
 .dress-code-image {
-  max-width: 80%;
-  height: auto;
+  width: 100%;
+  max-width: 500px; /* Limita el ancho máximo en pantallas grandes */
+  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
   margin-top: 15px;
 }
+
 
 /* Video Map */
 .videoMapa {
   width: 85%;
   height: 60%;
   object-fit: cover;
+  margin: 0;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -367,29 +297,14 @@ p {
 /* Comparte Tus Fotos */
 #comparteTusFotos {
   background-color: #ffffff;
+  margin: 0;
 }
 
 /* Confirma Asistencia */
 #confirmaTuAsistencia {
   background-color: #ffffff;
+  margin: 0;
 }
 
 
-.shadow-box {
-  padding: 30px;
-  border: 0.2px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  max-width: 600px;
-  text-align: center;
-}
 
-
-/* Video Map */
-.videoMapa {
-  width: 100%;
-  height: 50%;
-}
-
-/* Video Map */
