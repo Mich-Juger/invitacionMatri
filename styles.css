@@ -33,10 +33,14 @@ body {
 
 
 /* Fondo para "Padres y Padrinos" */
+/* Fondo para la sección "Padres y Padrinos" */
 .parents-section {
   position: relative;
-  color: #2a6880;
+  color: #2a6880; /* Color del texto */
   overflow: hidden;
+  background-color: #ffffff; /* Fondo base */
+  padding: 20px; /* Espacio alrededor del contenido */
+  min-height: 300px; /* Garantiza que haya suficiente altura en móviles */
 }
 
 /* Imagen de fondo para la sección "Padres y Padrinos" */
@@ -46,25 +50,49 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/White\ 2\ Invitation.svg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
+  background-image: url('images/fondoprueba.png');
+  background-size: cover; /* Ocupar toda la sección */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* Evita repeticiones */
+  z-index: -1; /* Coloca la imagen detrás del contenido */
 }
 
-.parents-section h2,
-.parents-section p,
-.parents-section .elegant-card {
-  position: relative;
-  z-index: 1;
-}
+
 
 .elegant-card {
   position: relative;
   z-index: 1;
   padding-bottom: 5px;
+
 }
+
+
+
+/* Textos y contenido de la sección */
+.parents-section h2,
+.parents-section p,
+.parents-section .elegant-card {
+  position: relative; /* Asegura que el contenido esté sobre el fondo */
+  z-index: 1; /* Prioridad sobre la imagen de fondo */
+  margin: 10px 0; /* Espaciado entre los elementos */
+
+}
+
+
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .parents-section {
+    padding: 15px; /* Reduce el espacio para ajustarse a móviles */
+    min-height: 200px; /* Altura mínima para móviles */
+  }
+
+  .parents-section .background-image {
+    background-size: cover; /* Mantén la imagen cubierta completamente */
+    height: 100%; /* Asegura que ocupe todo el contenedor */
+  }
+}
+
 
 
 
@@ -76,7 +104,7 @@ h1, h2 {
   font-size: 54px;
 }
 
-p {
+h3, p {
   font-size: 1.1em;
   line-height: 1.5;
   color: #2a6880;
@@ -326,13 +354,19 @@ p {
 
 
 
+/* Estilos para la sección de regalos */
+.regalos {
+  text-align: center;
+  padding: 20px;
+}
 
-
-
-
-
-
-
+/* Estilo del ícono */
+.gift-icon {
+  width: 80px; /* Ajusta el tamaño del ícono */
+  height: auto; /* Mantén la proporción */
+  margin: 10px auto; /* Centra el ícono y da espacio */
+  display: block; /* Asegura que esté en una nueva línea */
+}
 
 
 /* Sección del Itinerario */
