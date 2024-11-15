@@ -16,16 +16,21 @@ body {
 
 /* Section Styles */
 .section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   padding: 40px;
   text-align: center;
   max-width: 100%;
-  margin: 0;
 }
+
+
+/* parientes*/
+.parent {
+  padding-bottom: 40px;
+}
+
+.parent1 {
+  padding: 10px;
+}
+
 
 /* Fondo para "Padres y Padrinos" */
 .parents-section {
@@ -41,19 +46,27 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('images/White\ 2\ Invitation.svg'); /* Ruta de la imagen de fondo */
+  background-image: url('images/White\ 2\ Invitation.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -1; /* Coloca la imagen de fondo detrás del contenido */
+  z-index: -1;
 }
 
 .parents-section h2,
 .parents-section p,
 .parents-section .elegant-card {
   position: relative;
-  z-index: 1; /* Asegura que el contenido esté sobre la imagen de fondo */
+  z-index: 1;
 }
+
+.elegant-card {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 5px;
+}
+
+
 
 h1, h2 {
   color: #2a6880;
@@ -71,13 +84,16 @@ p {
   font-family: "Funnel Display", sans-serif;
 }
 
-.fechaBoda {
-  font-size: 32px;
+.fechaBoda1 {
+  font-size: 24px;
   color: burlywood;
 }
 
-
-/* Lugar y Ubicacion*/
+.fechaBoda {
+  font-size: 32px;
+  color: burlywood;
+  letter-spacing: 2px;
+}
 
 /* Estilos para la sección 2 con imagen de fondo */
 .section-2 {
@@ -85,18 +101,10 @@ p {
   padding: 40px;
   text-align: center;
   color: #ffffff;
-  background-image: url('images/White\ 4.png'); /* Ruta de la imagen de fondo */
+  background-image: url('images/White\ 4.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.section-2 .shadow-box, 
-.section-2 h2, 
-.section-2 p, 
-.section-2 a {
-  position: relative;
-  z-index: 2; /* Asegura que el contenido esté sobre la imagen de fondo */
 }
 
 /* Opcional: superposición semi-transparente */
@@ -120,42 +128,36 @@ p {
   max-width: 600px;
   margin: 20px auto;
   text-align: center;
-  
 }
 
 /* Botón Estilos */
-.btn-one {
-  color: #ffffff;
-  background-color: #2a6880;
-  padding: 10px 20px;
+.btn-standard {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
   text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
+  border: 2px solid #b3cde0;
+  border-radius: 25px;
+  background-color: #eaf4fc;
+  color: #5a7d9a;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
   margin-top: 20px;
-  transition: background-color 0.3s;
 }
 
-.btn-one:hover {
-  background-color: #1f5160;
+.btn-standard:hover {
+  background-color: #d0e4f2;
+  color: #4a6d88;
 }
 
-
-
-/* Confirmation and Hidden Elements */
-.confirmation {
-  margin-top: 20px;
-  font-size: 1em;
-  color: #2a6880;
-}
-
-.hidden {
-  display: none;
+.btn-standard .button-text {
+  font-size: 20px;
+  color: #5a7d9a;
 }
 
 /* Countdown Section */
 #countdown {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   gap: 20px;
   margin-top: 10px;
 }
@@ -165,7 +167,7 @@ p {
 }
 
 .number {
-  font-size: 2em;
+  font-size: 1em;
   font-weight: bold;
 }
 
@@ -179,9 +181,8 @@ p {
   position: relative;
   width: 100%;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
   overflow: hidden;
   margin: 0;
 }
@@ -193,28 +194,71 @@ p {
   object-fit: cover;
 }
 
+
+/* nuestra boda será*/
+
+.prueba {
+  padding-top: 200px;
+}
+
+
+
+/* Contenedor del video */
+.videoMapa-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Estilo del video en pantallas grandes */
+.videoMapa {
+  width: 70%; /* 50% del ancho de la pantalla en pantallas grandes */
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  margin: 0 auto; /* Centrar el video en pantallas grandes */
+}
+
+/* Estilo del video en dispositivos móviles */
+@media (max-width: 600px) {
+  .videoMapa-container {
+    padding: 0; /* Elimina el padding en móviles */
+  }
+
+  .videoMapa {
+    width: 100%; /* Ancho completo de la pantalla en móviles */
+    height: auto; /* Ajusta la altura automáticamente manteniendo proporción */
+    max-height: 100vh; /* Altura máxima de la pantalla en móviles */
+    object-fit: contain; /* Asegura que el video mantenga proporciones sin recortar */
+  }
+}
+
+
+
+
+
+
+
+
+
 /* Dress Code Section */
 #vestimenta-section {
   text-align: center;
   padding: 20px;
-  margin: 0;
-  background-color: antiquewhite;
+  margin: 60px 0 0; /* Añade un margen superior para evitar la superposición */
+  background: linear-gradient(to bottom, rgba(247, 243, 238, 0) 0%, #f2c38d73 50%, rgba(247, 243, 238, 0) 100%);
 }
 
 .dress-code-image {
   width: 100%;
-  max-width: 500px; /* Limita el ancho máximo en pantallas grandes */
-  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+  max-width: 500px;
+  height: auto;
   margin-top: 15px;
 }
 
-/* Video Map */
-.videoMapa {
-  width: 85%;
-  height: 60%;
-  object-fit: cover;
-  margin: 0;
-}
+
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
@@ -234,16 +278,82 @@ p {
   button {
     padding: 12px 20px;
   }
+
 }
 
-/* Comparte Tus Fotos */
-#comparteTusFotos {
-  background-color: #ffffff;
-  margin: 0;
+/* Sección completa que unifica "Con Amor" y el Contador */
+.countdown-love-section {
+  height: 600px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #2a6880;
+  margin-top: 20px;
 }
 
-/* Confirma Asistencia */
-#confirmaTuAsistencia {
-  background-color: #ffffff;
-  margin: 0;
+.countdown-love-section h2 {
+  font-family: 'Tangerine', cursive;
+  font-size: 48px;
+  color: #2a6880;
+  margin-bottom: 10px;
 }
+
+.countdown-love-section p {
+  font-size: 1.5em;
+  color: #555555;
+  margin-bottom: 20px;
+  font-family: 'Funnel Display', sans-serif;
+}
+
+/* Contenedor del Contador */
+#countdown-section {
+  padding-bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.time-part {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  width: 80px;
+  box-shadow: 0 4px 10px rgba(42, 104, 128, 0.2);
+  transition: transform 0.3s;
+}
+
+.time-part:hover {
+  transform: translateY(-5px);
+}
+
+.number {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2a6880;
+  font-family: 'Funnel Display', sans-serif;
+}
+
+.label {
+  font-size: 12px;
+  color: #555555;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/* Ajustes para mayor espacio entre el contador y la foto final */
+.celebration-video {
+  margin-top: 50px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.celebration-video img {
+  width: 100%;
+  height: auto;
+}
+

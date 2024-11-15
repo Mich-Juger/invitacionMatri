@@ -2,158 +2,143 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación de Matrimonio</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Funnel+Display:wght@300..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NOS CASAMOS -->
+<!-- SECCIÓN: Encabezado - Nos Casamos -->
 <div class="overlay-content">
   <img src="images/Gold Aesthetic Elegant Floral Wedding Details Presentation.png" alt="Nos Casamos" class="nos-casamos-image">
 </div>
-<!-- FIN NOS CASAMOS -->
+<!-- FIN SECCIÓN: Encabezado - Nos Casamos -->
 
-<!-- PADRES Y PADRINOS -->
+
+<!-- SECCIÓN: Padres y Padrinos -->
 <div class="section parents-section">
   <div class="background-image"></div> <!-- Imagen de fondo -->
-  <h2 class="parents">En Compañía de nuestros Padres y Padrinos</h2>
-  <div class="elegant-card">
-      <p><strong>Madre de la novia:</strong> Dalma Carreño</p>
+  <div class="parent">
+    <h2 class="parent">En Compañía de nuestros Padres</h2>
+    <div class="elegant-card"><p><strong>Madre de la novia:</strong></p></div><p>Dalma Carreño</p>
+    <div class="elegant-card"><p><strong>Padres del novio:</strong></p><p>Maria Angelica Viacava</p><p>Enzo De Lucca</p></div>
+    <h2 class="parent1">...y Padrinos:</h2>
+    <div class="elegant-card"><p><strong>Madrinas de la novia:</strong></p><p>Camila Rivera</p><p>Constanza Venegas</p></div>
+    <div class="elegant-card"><p><strong>Padrino del novio:</strong></p><p> Andrés Marchant</p></div>
   </div>
-  <div class="elegant-card">
-      <p><strong>Padres del novio:</strong> Maria Angelica Viacava</p><p>Enzo De Lucca</p>
-  </div>
-  <div class="elegant-card">
-      <p><strong>Madrinas de la novia:</strong> Camila Rivera</p><p>Constanza Venegas</p>
-  </div>
-  <div class="elegant-card">
-      <p><strong>Padrino del novio:</strong> Andrés Marchant</p>
+  
+  <div class="shadow-box">
+    <h2>Nuestra Boda será el sábado</h2>
+    <p class="fechaBoda">03 | Mayo | 2025</p>
+    <!-- Botón para guardar fecha en Google Calendar -->
+    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z" target="_blank" class="btn-standard">
+      <span class="button-text">Agendar fecha</span>
+    </a>
   </div>
 </div>
-<!-- FIN PADRES Y PADRINOS -->
 
 
-
-
-
-<!-- LUGAR Y FECHA -->  
-<div class="section-2">
-  <div class="section">
-    <div class="section shadow-box">
-        <h2>Nuestra Boda será el sábado</h2>
-        <p class="fechaBoda">03 | Mayo | 2025</p>
-        <!-- Botón de Agendar en Google Calendar -->
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z&details=Nos+casamos+en+el+Hotel+Intercontinental+de+Santiago.+¡Esperamos+que+nos+acompañes!&location=Hotel+Intercontinental,+Santiago,+Chile" 
-          target="_blank" class="btn btn-one"><span>Guardar Fecha</span></a>
-        <!-- Fin Botón de Agendar en Google Calendar -->
-    </div>
-    
-    <!-- Mapa Video -->
-  <div class="section">
-    <h2><strong>Ubicación</strong></h2>
+<!-- SECCIÓN: Lugar -->
+<div class="section section-2">
+  <div>
+    <h2>Lugar</h2>
     <p class="fechaBoda1">InterContinental Santiago</p>
-    <video class="videoMapa" autoplay muted loop playsinline controls>
+    <div class="videoMapa-container">
+      <video class="videoMapa" autoplay muted loop playsinline controls>
         <source src="video/mapa.mp4" type="video/mp4">
-        Tu navegador no soporta el video HTML5.
-    </video>
-    <!-- Botón de Ubicación en Google Maps -->
-    <a href="https://www.google.com/maps/place/InterContinental+Santiago/@-33.4134128,-70.6057589,17z/data=!4m11!3m10!1s0x9662cf417a28547b:0x1dda5970a799c5e0!5m4!1s2025-05-06!2i8!4m1!1i2!8m2!3d-33.4134128!4d-70.603184!16s%2Fg%2F11f15fzhcd?entry=ttu&g_ep=EgoyMDI0MTExMC4wIKXMDSoASAFQAw%3D%3D" 
-      target="_blank" class="btn btn-one"><span>Ver Ubicación</span></a>
-    <!-- Fin Botón de Ubicación en Google Maps -->
-  </div>
+      </video>
+    </div>
+    <!-- Botón para ver ubicación en Google Maps -->
+    <a href="https://www.google.com/maps/place/InterContinental+Santiago" target="_blank" class="btn-standard">
+      <span class="button-text">Ver Ubicación</span>
+    </a>
   </div>
 </div>
-<!-- FIN LUGAR Y FECHA -->
 
 
 
-<!-- ITINERARIO -->
 
-<!-- FIN ITINERARIO -->
-
-<!-- VESTIMENTA -->  
+<!-- SECCIÓN: Vestimenta -->
 <div class="section" id="vestimenta-section">
-  <h2 class="fade-up">Vestimenta Formal</h2>
-  <img src="images/Dress Code png.webp" alt="Código de vestimenta" class="dress-code-image fade-up">
-  <p class="fade-up">Evita el color blanco en la elección de vestimenta en honor a nuestra celebración.</p>
+  <h2>Vestimenta Formal</h2>
+  <img src="images/Dress Code png.webp" alt="Código de vestimenta" class="dress-code-image">
+  <p>Evita el color blanco en la elección de vestimenta en honor a nuestra celebración.</p>
 </div>
-<!-- FIN VESTIMENTA -->  
+<!-- FIN SECCIÓN: Vestimenta -->
 
-<!-- FOTOS -->  
+
+<!-- SECCIÓN: Fotos -->
 <div class="section" id="comparteTusFotos">
-    <h2>Fotos</h2>
-    <p>Ayuda que crezca nuestros recuerdos. Publica tus recuerdos en redes sociales el día de la boda con nuestro hashtag
-       #BodaDeLucca.Juger
-    </p>
+  <h2>Fotos</h2>
+  <p>Publica tus recuerdos en redes sociales con nuestro hashtag #BodaDeLuccaJuger</p>
 </div>
-<!-- FIN FOTOS --> 
+<!-- FIN SECCIÓN: Fotos -->
 
-<!-- REGALOS -->  
+<!-- SECCIÓN: Regalos y Deseos -->
 <div class="section">
-    <h2>Regalos</h2>
-    <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros. Haz clic aquí para ver opciones.</p>
-    <h2>Buzón de deseos</h2>
-    <p>Nos encantaría leer tus buenos deseos. ¡Déjanos un mensaje que recordemos por siempre!</p>
-    <h2>Sugerencia de canciones</h2>
-    <p>¿Cuáles son esas canciones que no pueden faltar en nuestra boda? ¡Comparte tus favoritas!</p>
+  <h2>Regalos</h2>
+  <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle, haz clic aquí para ver opciones.</p>
+  <h2>Buzón de deseos</h2>
+  <p>Déjanos un mensaje que recordemos por siempre.</p>
+  <h2>Sugerencia de canciones</h2>
+  <p>Comparte tus canciones favoritas para nuestra boda.</p>
 </div>
-<!-- FIN REGALOS -->  
+<!-- FIN SECCIÓN: Regalos y Deseos -->
 
-<!-- CONFIRMA ASISTENCIA -->  
+
+<!-- SECCIÓN: Confirmación de Asistencia -->
 <div class="section" id="confirmaTuAsistencia">
   <h2>Confirma tu Asistencia</h2>
-  <p>Por favor, confirma si puedes acompañarnos en este día tan importante.</p>
   <p>Completa el formulario para preferencias alimentarias</p>
-
-  <a href="https://forms.gle/Brv6eZ4LPeMit9wC8" target="_blank" class="btn btn-one">
-      <span>Confirmar asistencia</span>
-  </a>
-  <div id="confirmation" class="confirmation hidden">
+  <!-- Enlace para confirmar asistencia -->
+    <a href="https://forms.gle/Brv6eZ4LPeMit9wC8" target="_blank" class="btn-standard">
+      <span class="button-text">Confirmar asistencia</span>
+    </a>
+    <div id="confirmation" class="confirmation hidden">
     <p>¡Gracias por confirmar! Nos vemos en la celebración.</p>
   </div>
 </div>
-<!-- FIN CONFIRMA ASISTENCIA -->  
+<!-- FIN SECCIÓN: Confirmación de Asistencia -->
 
-<!-- FIN -->
-<div class="section">
-    <h2>Con Amor</h2>
-    <p>Con Amor</p>
-    <p>Gio y Mich</p>
-  
-    <!-- Contador de días -->
-    <div class="section" id="countdown-section">
-        <h2>Días para la Boda</h2>
-        <div id="countdown">
-            <div class="time-part" id="days">
-                <span class="number">0</span>
-                <span class="label">Días</span>
-            </div>
-            <div class="time-part" id="hours">
-                <span class="number">0</span>
-                <span class="label">Horas</span>
-            </div>
-            <div class="time-part" id="minutes">
-                <span class="number">0</span>
-                <span class="label">Minutos</span>
-            </div>
-            <div class="time-part" id="seconds">
-                <span class="number">0</span>
-                <span class="label">Segundos</span>
-            </div>
-        </div>
+
+<!-- SECCIÓN: Con Amor y Contador de Días con Video -->
+<div class="countdown-love-section">
+  <div id="countdown-section">
+    <h2 class="diasBoda">Días para la Boda</h2>
+    <div id="countdown">
+      <div class="time-part" id="days">
+        <span class="number">0</span>
+        <span class="label">Días</span>
+      </div>
+      <div class="time-part" id="hours">
+        <span class="number">0</span>
+        <span class="label">Horas</span>
+      </div>
+      <div class="time-part" id="minutes">
+        <span class="number">0</span>
+        <span class="label">Minutos</span>
+      </div>
+      <div class="time-part" id="seconds">
+        <span class="number">0</span>
+        <span class="label">Segundos</span>
+      </div>
     </div>
-    <!-- Fin Contador de días -->
+  </div>
+  <!-- Video de bienvenida o celebración -->
+  <div class="celebration-video">
+    <img src="images/Foto final.png" alt="Nos Casamos" class="nos-casamos-image">
+  </div>
+
+
+
 </div>
-<!-- FIN -->
+<!-- FIN SECCIÓN: Con Amor y Contador de Días con Video -->
+
+
+
 
 <script src="script.js"></script>
+
 </body>
 </html>
