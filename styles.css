@@ -32,68 +32,121 @@ body {
 }
 
 
-/* Fondo para "Padres y Padrinos" */
-/* Fondo para la sección "Padres y Padrinos" */
+/* Sección de Padres y Padrinos */
 .parents-section {
-  position: relative;
-  color: #2a6880; /* Color del texto */
-  overflow: hidden;
-  background-color: #ffffff; /* Fondo base */
-  padding: 20px; /* Espacio alrededor del contenido */
-  min-height: 300px; /* Garantiza que haya suficiente altura en móviles */
+  text-align: center;
+  padding: 40px 20px;
 }
 
-/* Imagen de fondo para la sección "Padres y Padrinos" */
-.parents-section .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('images/fondoprueba.png');
-  background-size: cover; /* Ocupar toda la sección */
-  background-position: center; /* Centrar la imagen */
-  background-repeat: no-repeat; /* Evita repeticiones */
-  z-index: -1; /* Coloca la imagen detrás del contenido */
+/* Imagen para "Padres y Padrinos" */
+.parents-image {
+  width: 100%; /* Ocupa el ancho completo */
+  max-width: 500px; /* Tamaño máximo similar a la sección "Vestimenta" */
+  height: auto; /* Mantén la proporción */
+  margin: 20px auto; /* Centra la imagen */
+  display: block; /* Asegura que sea un bloque independiente */
 }
 
 
+/* Fondo para "Padres y Padrinos" */
+/* Sección de padres y padrinos */
+.parents-section {
+  text-align: center;
+  color: #2a6880;
+  padding: 20px;
+}
 
-.elegant-card {
-  position: relative;
-  z-index: 1;
-  padding-bottom: 5px;
+/* Filas de imágenes */
+.images-row {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  margin-bottom: 20px;
+}
+
+/* Íconos de los padres */
+.parent-icon {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  padding: 20px 0 10px;
 
 }
 
-
-
-/* Textos y contenido de la sección */
-.parents-section h2,
-.parents-section p,
-.parents-section .elegant-card {
-  position: relative; /* Asegura que el contenido esté sobre el fondo */
-  z-index: 1; /* Prioridad sobre la imagen de fondo */
-  margin: 10px 0; /* Espaciado entre los elementos */
-
+/* Contenedor de información de los padres */
+.parents-info {
+  display: flex;
+  justify-content: space-around;
+  gap: 100px;
+  margin-bottom: 40px;
 }
 
-
-
-/* Ajustes responsivos para pantallas pequeñas */
-@media (max-width: 600px) {
-  .parents-section {
-    padding: 15px; /* Reduce el espacio para ajustarse a móviles */
-    min-height: 200px; /* Altura mínima para móviles */
-  }
-
-  .parents-section .background-image {
-    background-size: cover; /* Mantén la imagen cubierta completamente */
-    height: 100%; /* Asegura que ocupe todo el contenedor */
-  }
+/* Columnas de información de los padres */
+.column {
+  text-align: center;
 }
 
+/* Títulos de las secciones */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2a6880;
+}
 
+/* Línea de separación */
+.section-line {
+  width: 60%;
+  max-width: 300px;
+  height: 2px;
+  background-color: #d1a05a; /* Color dorado */
+  border: none;
+  margin: 5px auto 10px;
+}
+
+/* Información de padrinos */
+.godparents-info {
+  margin-top: 30px;
+}
+
+/* Columnas para los nombres de los padrinos */
+.godparents-columns {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.godparents-column {
+  text-align: left;
+}
+
+/* Estilo de los párrafos */
+p {
+  font-size: 16px;
+  color: #2a6880;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Sección "Nuestra Boda Será el..." */
+.shadow-box {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #2a6880;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Estilo de la fecha */
+.fechaBoda {
+  font-size: 32px;
+  color: burlywood;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
 
 
 h1, h2 {
@@ -102,6 +155,7 @@ h1, h2 {
   font-family: "Tangerine", cursive;
   font-weight: 400;
   font-size: 54px;
+  padding-bottom: 10px;
 }
 
 h3, p {
@@ -522,8 +576,3 @@ h3, p {
 
 
 /* Ajustes para mayor espacio entre el contador y la foto final
-
-
-.regalos {
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
-} */
