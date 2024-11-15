@@ -47,11 +47,50 @@ fadeElements.forEach(element => {
     fadeObserver.observe(element);
 });
 
+
+
+
 // Cambio gradual de opacidad en el fondo al hacer scroll
 window.addEventListener('scroll', () => {
   const scrollPosition = window.scrollY;
   document.body.style.setProperty('--scroll-opacity', Math.min(0.15 + scrollPosition / 1000, 0.5));
 });
+
+
+
+// Carrusel
+// Variables principales
+const carousel = document.querySelector('.carousel');
+const carouselItems = document.querySelectorAll('.carousel-item');
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
+
+// Función para actualizar la posición del carrusel
+function updateCarousel() {
+  const offset = -currentIndex * 100; // Calcula el desplazamiento en porcentaje
+  carousel.style.transform = `translateX(${offset}%)`;
+
+  // Actualiza la clase activa de las pelotitas
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
+}
+
+// Navegar al hacer clic en las pelotitas
+dots.forEach((dot) => {
+  dot.addEventListener('click', () => {
+    currentIndex = parseInt(dot.getAttribute('data-index'), 10);
+    updateCarousel();
+  });
+});
+
+// Inicializa el carrusel en el primer elemento
+updateCarousel();
+
+
+
+
+
 
 
 

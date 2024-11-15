@@ -87,6 +87,7 @@ p {
 .fechaBoda1 {
   font-size: 24px;
   color: burlywood;
+  
 }
 
 .fechaBoda {
@@ -105,6 +106,7 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
 }
 
 /* Opcional: superposición semi-transparente */
@@ -194,6 +196,48 @@ p {
   object-fit: cover;
 }
 
+/* Contenedor de la sección "Nos Casamos" */
+#nosCasamos {
+  position: relative; /* Necesario para controlar el stacking context */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  z-index: 1;
+}
+
+/* Imagen fija */
+#nosCasamos img {
+  position: fixed; /* Permanece fija al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra toda el área */
+  z-index: -1;
+}
+
+/* Sección inferior */
+.section {
+  position: relative;
+  z-index: 2;
+  background-color: white; /* Contraste para cubrir la imagen */
+  padding: 40px;
+}
+
+/* Añadido para ocultar la imagen al cubrirla completamente */
+#nosCasamos:after {
+  content: "";
+  position: absolute;
+  top: 100%; /* Comienza justo debajo del contenedor */
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Misma altura que el contenedor */
+  background-color: white; /* Fondo blanco para cubrir la imagen */
+  z-index: 2; /* Asegura que cubra la imagen fija */
+}
+
+
+
+
+
 
 /* nuestra boda será*/
 
@@ -235,20 +279,19 @@ p {
   }
 }
 
-
-
-
-
-
-
-
-
 /* Dress Code Section */
+
+.dress-code-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-top: 15px;
+}
+
+
+/* Imagen adicional en la sección de Vestimenta */
 #vestimenta-section {
   text-align: center;
-  padding: 20px;
-  margin: 60px 0 0; /* Añade un margen superior para evitar la superposición */
-  background: linear-gradient(to bottom, rgba(247, 243, 238, 0) 0%, #f2c38d73 50%, rgba(247, 243, 238, 0) 100%);
 }
 
 .dress-code-image {
@@ -281,17 +324,103 @@ p {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Sección del Itinerario */
+#itinerario-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+/* Contenedor del carrusel */
+.carousel-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden; /* Oculta los elementos fuera del carrusel */
+  border-radius: 10px;
+}
+
+/* Carrusel principal */
+.carousel {
+  display: flex; /* Los elementos se alinean en fila */
+  transition: transform 0.5s ease-in-out; /* Animación suave al mover el carrusel */
+}
+
+/* Elementos individuales del carrusel */
+.carousel-item {
+  min-width: 100%; /* Cada elemento ocupa el 100% del ancho del contenedor */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.carousel-icon {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Pelotitas de navegación */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #2a6880;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Sección completa que unifica "Con Amor" y el Contador */
 .countdown-love-section {
   height: 600px;
   padding: 30px;
-  background: #ffffff;
-  border-radius: 15px;
+  background: #ffffff; /* Fondo completamente sólido */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: #2a6880;
-  margin-top: 20px;
+  position: relative; /* Asegura que esta sección se superponga */
+  z-index: 2; /* Coloca esta sección por encima de la imagen de fondo */
 }
+
 
 .countdown-love-section h2 {
   font-family: 'Tangerine', cursive;
@@ -357,3 +486,10 @@ p {
   height: auto;
 }
 
+
+/* Ajustes para mayor espacio entre el contador y la foto final
+
+
+.regalos {
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+} */
