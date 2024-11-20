@@ -1,143 +1,230 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación de Matrimonio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Matrimonio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Charm:wght@400;700&family=Delius+Swash+Caps&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Funnel+Display:wght@300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&family=Vidaloka&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Charm:wght@400;700&family=Delius+Swash+Caps&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Funnel+Display:wght@300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&family=Vidaloka&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Charm:wght@400;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Delius+Swash+Caps&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Funnel+Display:wght@300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Tangerine:wght@400;700&family=Vidaloka&display=swap" rel="stylesheet">
 
-<!-- SECCIÓN: Encabezado - Nos Casamos -->
-<div class="overlay-content" id="nosCasamos">
-  <img src="images/Portada.png" alt="Nos Casamos" class="nos-casamos-image">
+  </head>
+  <body>
+
+<!-- Menú Responsive - Sidebar -->
+<!-- Botón de hamburguesa -->
+<button class="hamburger" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">GIO & MICH</div>
+    <button class="close-btn" onclick="toggleSidebar()">
+      &#10005; <!-- Icono de cerrar -->
+    </button>
+  </div>
+  <ul class="sidebar-links">
+    <li><a href="#nosCasamos">Inicio</a></li>
+    <li><a href="#nuestra-boda-sera">Nuestra Boda</a></li>
+    <li><a href="#vestimenta-section">Vestimenta</a></li>
+    <li><a href="#itinerario-section">Itinerario</a></li>
+    <li><a href="#confirmaTuAsistencia">Confirmación</a></li>
+  </ul>
 </div>
-<!-- FIN SECCIÓN: Encabezado - Nos Casamos -->
+
+
+
+  <!-- SECCIÓN: Encabezado - Nos Casamos -->
+  <div class="overlay-content" id="nosCasamos">
+    <img src="images/PORTADA.png" alt="Nos Casamos" class="nos-casamos-image">
+  </div>
+  <!-- FIN SECCIÓN: Encabezado - Nos Casamos -->
 
 
 <!-- SECCIÓN: Padres y Padrinos -->
 <div class="section parents-section">
-  <h2>En compañía de nuestros</h2>
-  <!-- Imágenes de los padres -->
-  <div class="images-row">
-    <img src="images/NOVIA.png" alt="Madre de la Novia" class="parent-icon">
-    <img src="images/NOVIO.png" alt="Padre del Novio" class="parent-icon">
+  <h3>EN COMPAÑÍA DE NUESTROS</h3>
+
+  <div class="parents-godparents-container">
+    <!-- Información de los padres -->
+    <div class="godparents-info parents-column">
+      <h2>Padres</h2>
+      <p>Dalma Carreño</p>
+      <p>María Angélica Viacava</p>
+      <p>Enzo De Lucca</p>
+    </div>
+
+    <!-- Información de padrinos -->
+    <div class="godparents-info godparents-column">
+      <h2>...y Padrinos</h2>
+      <p>Camila Rivera</p>
+      <p>Constanza Venegas</p>
+      <p>Andrés Marchant</p>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Nuestra Boda -->
+<!-- Nuestra Boda -->
+<div id="nuestra-boda-sera" class="section">
+  <h2>Nuestra boda será el sábado</h2>
+  <p class="fechaBoda">03 | Mayo | 2025</p>
+  <!-- Botón para mostrar opciones de calendario -->
+  <button class="btn-standard" onclick="toggleCalendarPopup()">
+    <span class="button-text"><i class="fas fa-calendar-check"></i>Guarda la fecha</span>
+  </button>
+  
+  <!-- Ventana emergente -->
+  <div id="calendar-popup" class="popup hidden">
+    <div class="popup-content">
+      <h3>Agendar en tu calendario</h3>
+      <ul>
+        <li>
+          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z" target="_blank">
+            <div class="calendar-option">
+              <img src="images/google.png" alt="Google Calendar" class="icon-calendar">
+              Google Calendar
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Boda+de+Giovanni+y+Michelle&startdt=2025-05-03T19:00:00&enddt=2025-05-03T23:30:00" target="_blank">
+            <div class="calendar-option">
+              <img src="images/outlook.png" alt="Outlook" class="icon-calendar">
+              Outlook
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://calendar.yahoo.com/?v=60&view=d&type=20&title=Boda+de+Giovanni+y+Michelle&st=20250503T190000Z&et=20250503T233000Z" target="_blank">
+            <div class="calendar-option">
+              <img src="images/yahoo.png" alt="Yahoo Calendar" class="icon-calendar">
+              Yahoo Calendar
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Boda+de+Giovanni+y+Michelle%0ADTSTART:20250503T190000Z%0ADTEND:20250503T233000Z%0AEND:VEVENT%0AEND:VCALENDAR" download="boda-event.ics">
+            <div class="calendar-option">
+              <img src="images/calendar.png" alt="ICS Download" class="icon-calendar">
+              Descargar ICS
+            </div>
+          </a>
+        </li>
+      </ul>
+      <button class="btn-close" onclick="toggleCalendarPopup()">Cerrar</button>
+    </div>
   </div>
   
-  <!-- Información de los padres -->
-  <div class="godparents-info">
-    <h2> Padres</h2>
-    <hr class="section-line">
-    <div class="godparents-columns">
-      <div class="godparents-column">
-        <p>Dalma Carreño</p>
+  
+  <!-- Imagen decorativa inferior derecha -->
+  <img src="images/FLOR.png" alt="Flor decorativa" class="flor-decorativa">
+</div>
+<!-- Fin Nuestra Boda -->
+
+<!-- Fin Nuestra Boda -->
+
+
+
+
+
+  <!-- SECCIÓN: Lugar -->
+  <div class="section section-2">
+    <div>
+      <h2>Lugar</h2>
+      <p class="fechaBoda1">InterContinental Santiago</p>
+      <div class="videoMapa-container">
+        <video class="videoMapa" autoplay muted loop playsinline controls>
+          <source src="video/mapa.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="godparents-column">
-        <p>María Angélica Viacava</p><p>Enzo De Lucca</p>
-      </div>
+      <!-- Botón para ver ubicación en Google Maps -->
+      <a href="https://www.google.com/maps?q=hotel+intercontinental" target="_blank" class="btn-standard">
+        <span class="button-text"><i class="fas fa-map-marker-alt"></i> Ver Ubicación</span>
+      </a>
     </div>
   </div>
 
-  <!-- Información de padrinos -->
-  <div class="godparents-info">
-    <h2> ... y Padrinos</h2>
-    <hr class="section-line">
-    <div class="godparents-columns">
-      <div class="godparents-column">
-        <p>Camila Rivera<br>Constanza Venegas</p>
-      </div>
-      <div class="godparents-column">
-        <p>Andrés Marchant</p>
-      </div>
-    </div>
+
+
+  <!-- SECCIÓN: Vestimenta -->
+  <div class="section" id="vestimenta-section">
+    <h2>Vestimenta Formal</h2>
+    <img src="images/Dress Code png.webp" alt="Código de vestimenta" class="dress-code-image">
+    <p></p>
+    <!-- Imagen adicional -->
+    <img src="images/COLORES.png" alt="Vestimenta Adicional" class="dress-code-image">
   </div>
-
-  <!-- Sección "Nuestra Boda Será el..." -->
-  <div class="shadow-box">
-    <h2>Nuestra Boda será el sábado</h2>
-    <p class="fechaBoda">03 | Mayo | 2025</p>
-    <!-- Botón para guardar fecha en Google Calendar -->
-    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z" target="_blank" class="btn-standard">
-      <span class="button-text">Agendar fecha</span>
-    </a>
-  </div>
-</div>
+  <!-- FIN SECCIÓN: Vestimenta -->
 
 
 
-
-<!-- SECCIÓN: Lugar -->
-<div class="section section-2">
-  <div>
-    <h2>Lugar</h2>
-    <p class="fechaBoda1">InterContinental Santiago</p>
-    <div class="videoMapa-container">
-      <video class="videoMapa" autoplay muted loop playsinline controls>
-        <source src="video/mapa.mp4" type="video/mp4">
-      </video>
-    </div>
-    <!-- Botón para ver ubicación en Google Maps -->
-    <a href="https://www.google.com/maps?sca_esv=0a3f74cf83d1b011&output=search&q=hotel+intercontinental&source=lnms&fbs=AEQNm0CbCVgAZ5mWEJDg6aoPVcBgnoegmQBYI4vM8RhhlMgCG0CXTBN0rNLG4tos8qUan5MkwUCVxaaloGjRcfh8nYPmhmtrdEBbVEQ-k45AZeQIPlt8TKK0UsknV1Sbuph2CiiueHIbMsQva7re3LH5hCHOWHZYPeNRGAWZ8wN0oa665-W7BIYM_Nsy1LdVhVovxgdliz6zB2qDyjNCl8z5VlgfSiyA6w&entry=mc&ved=1t:200715&ictx=111" target="_blank" class="btn-standard">
-      <span class="button-text">Ver Ubicación</span>
-    </a>
-  </div>
-</div>
-
-
-
-<!-- SECCIÓN: Vestimenta -->
-<div class="section" id="vestimenta-section">
-  <h2>Vestimenta Formal</h2>
-  <img src="images/Dress Code png.webp" alt="Código de vestimenta" class="dress-code-image">
-  <p></p>
-  <!-- Imagen adicional -->
-  <img src="images/COLORES.png" alt="Vestimenta Adicional" class="dress-code-image">
-</div>
-<!-- FIN SECCIÓN: Vestimenta -->
-
-
-
-
-
-<!-- SECCIÓN: Itinerario -->
+  <!-- SECCIÓN: Itinerario --><!-- SECCIÓN: Itinerario -->
 <div class="section" id="itinerario-section">
-  <h2>Itinerario</h2>
+  <h3>ITINERARIO</h3>
   <div class="carousel-container">
+    <!-- Botón Anterior -->
+    <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">
+      &#10094; <!-- Símbolo de flecha izquierda -->
+    </button>
+
     <div class="carousel">
       <div class="carousel-item">
         <img src="images/RECEPCIÓN.png" alt="Icono Recepción" class="carousel-icon">
-        <p>Recepción: 18:30 hrs</p>
+        <h4>Recepción</h4>
+        <p>18:30 hrs</p>
       </div>
       <div class="carousel-item">
         <img src="images/Ceremonia.png" alt="Icono Ceremonia" class="carousel-icon">
-        <p>Ceremonia: 19:00 hrs</p>
+        <h4>Ceremonia</h4>
+        <p>19:00 hrs</p>
+
       </div>
       <div class="carousel-item">
         <img src="images/Vals.png" alt="Icono Vals" class="carousel-icon">
-        <p>Vals: 21:00 hrs</p>
+        <h4>Vals</h4>
+        <p>21:00 hrs</p>
       </div>
+
       <div class="carousel-item">
         <img src="images/Brindis.png" alt="Icono Brindis" class="carousel-icon">
-        <p>Brindis: 22:00 hrs</p>
+        <p>Brindis</p>
+        <h4>22:00 hrs</h4>
+
       </div>
       <div class="carousel-item">
         <img src="images/Cena.png" alt="Icono Cena" class="carousel-icon">
-        <p>Cena: 22:30 hrs</p>
+        <h4>Cena</h4>
+        <p>22:30 hrs</p>
       </div>
       <div class="carousel-item">
         <img src="images/Torta.png" alt="Icono Torta" class="carousel-icon">
-        <p>Corte Pastel: 23:30 hrs</p>
+        <h4>Corte Pastel</h4>
+        <p>23:30 hrs</p>
       </div>
       <div class="carousel-item">
         <img src="images/Fiesta.png" alt="Icono Fiesta" class="carousel-icon">
-        <p>Fiesta: 00:00 am</p>
+        <h4>Fiesta</h4>
+        <p>00:00 hrs</p>
       </div>
       <div class="carousel-item">
         <img src="images/Fin evento.png" alt="Icono Fin Evento" class="carousel-icon">
-        <p>Fin Evento: 3:00 am</p>
+        <h4>Fin Evento</h4>
+        <p>03:00 hrs</p>
       </div>
     </div>
+
+    <!-- Botón Siguiente -->
+    <button class="carousel-btn next-btn" onclick="moveCarousel(1)">
+      &#10095; <!-- Símbolo de flecha derecha -->
+    </button>
   </div>
   <div class="carousel-dots">
     <!-- Pelotitas de navegación -->
@@ -153,88 +240,95 @@
 </div>
 <!-- FIN SECCIÓN: Itinerario -->
 
-
-
-
-
-
+  <!-- FIN SECCIÓN: Itinerario -->
 
 
 <!-- SECCIÓN: Regalos y Deseos -->
-<div class="section">
+<div class="section regalos-deseos-section">
   <div class="regalos">
-    <h2>Mesa de Regalos</h2>
-    <!-- Ícono de regalos -->
-    <img src="images/Regalo.png" alt="Ícono de Regalo" class="gift-icon">
-    <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle te dejamos el link</p>
-    <a href="https://app.regalaundeseo.com/Mich-&-Gio/OBlsFE7" target="_blank" class="btn-standard">
-      <span class="button-text">Regala un deseo</span>
-    </a>
+    <div class="transparent-box">
+      <h2>Mesa de Regalos</h2>
+      <!-- Ícono de regalos -->
+      <img src="images/Regalo1.png" alt="Ícono de Regalo" class="gift-icon">
+      <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle te dejamos el link</p>
+      <a href="https://app.regalaundeseo.com" target="_blank" class="btn-standard">
+        <span class="button-text"><i class="fas fa-gift"></i> Regala un deseo</span>
+      </a>
+    </div>
   </div>
-  
+
   <div class="canciones">
-    <h2>Sugerencia de canciones</h2>
-    <p>Comparte tus canciones favoritas para nuestra boda.</p>
-    <a href="https://open.spotify.com/playlist/4k6p6K6kVaDTYURyN7JZJh?si=173672b263114bd4&pt=5751c8d6c9351a5080418443b1750c4b" target="_blank" class="btn-standard">
-      <span class="button-text">Canciones favoritas</span>
-    </a>
+    <div class="transparent-box">
+      <h2>Sugerencia de canciones</h2>
+      <!-- Ícono de regalos -->
+      <img src="images/spotify.png" alt="Ícono de Regalo" class="gift-icon">
+      <p>Comparte tus canciones favoritas para nuestra boda.</p>
+      <a href="https://open.spotify.com/playlist/4k6p6K6kVaDTYURyN7JZJh?si=173672b263114bd4&pt=5751c8d6c9351a5080418443b1750c4b" target="_blank" class="btn-standard">
+        <span class="button-text"><i class="fas fa-music"></i> Lista Spotify</span>
+      </a>
+    </div>
   </div>
 </div>
+
 <!-- FIN SECCIÓN: Regalos y Deseos -->
 
 
-<div class="section" id="confirmaTuAsistencia">
-  <h2>Confirma tu Asistencia</h2>
-  <!-- Ícono de confirmación -->
-  <img src="images/confirmasistencia.png" alt="Ícono de Confirmación" class="gift-icon">
-  <p>Completa el formulario para preferencias alimentarias</p>
-  <!-- Enlace para confirmar asistencia -->
-  <a href="https://forms.gle/Brv6eZ4LPeMit9wC8" target="_blank" class="btn-standard">
-    <span class="button-text">Confirmar asistencia</span>
-  </a>
-  <div id="confirmation" class="confirmation hidden">
-  </div>
-</div>
+<!--CONFIRMA TU ASISTENCIA-->
 
-
-
-<!-- SECCIÓN: Con Amor y Contador de Días con Video -->
-<div class="countdown-love-section">
-  <div id="countdown-section">
-    <h2 class="diasBoda">Días para la Boda</h2>
-    <div id="countdown">
-      <div class="time-part" id="days">
-        <span class="number">0</span>
-        <span class="label">Días</span>
-      </div>
-      <div class="time-part" id="hours">
-        <span class="number">0</span>
-        <span class="label">Horas</span>
-      </div>
-      <div class="time-part" id="minutes">
-        <span class="number">0</span>
-        <span class="label">Minutos</span>
-      </div>
-      <div class="time-part" id="seconds">
-        <span class="number">0</span>
-        <span class="label">Segundos</span>
-      </div>
+  <div class="section" id="confirmaTuAsistencia">
+    <h2>Confirma tu Asistencia</h2>
+    <!-- Ícono de confirmación -->
+    <img src="images/confirmasistencia.png" alt="Ícono de Confirmación" class="gift-icon">
+    <p>Completa el formulario para preferencias alimentarias</p>
+    <!-- Enlace para confirmar asistencia -->
+    <a href="https://forms.gle/Brv6eZ4LPeMit9wC8" target="_blank" class="btn-standard">
+      <span class="button-text"><i class="fas fa-check-circle"></i> Confirmar asistencia</span>
+    </a>
+    <div id="confirmation" class="confirmation hidden">
     </div>
   </div>
-  <!-- Video de bienvenida o celebración -->
-  <div class="celebration-video">
-    <img src="images/Foto final.png" alt="Nos Casamos" class="nos-casamos-image">
+
+<!--FIN CONFIRMA TU ASISTENCIA-->
+
+
+
+  <!-- SECCIÓN: Con Amor y Contador de Días con Video -->
+  <div class="countdown-love-section">
+    <div id="countdown-section">
+      <h2 class="diasBoda">Días para la Boda</h2>
+      <div id="countdown">
+        <div class="time-part" id="days">
+          <span class="number">0</span>
+          <span class="label">Días</span>
+        </div>
+        <div class="time-part" id="hours">
+          <span class="number">0</span>
+          <span class="label">Horas</span>
+        </div>
+        <div class="time-part" id="minutes">
+          <span class="number">0</span>
+          <span class="label">Minutos</span>
+        </div>
+        <div class="time-part" id="seconds">
+          <span class="number">0</span>
+          <span class="label">Segundos</span>
+        </div>
+      </div>
+    </div>
+    <!-- Video de bienvenida o celebración -->
+    <div class="celebration-video">
+      <img src="images/Foto final.png" alt="Nos Casamos" class="nos-casamos-image">
+    </div>
+
+
+
   </div>
-
-
-
-</div>
-<!-- FIN SECCIÓN: Con Amor y Contador de Días con Video -->
+  <!-- FIN SECCIÓN: Con Amor y Contador de Días con Video -->
 
 
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>

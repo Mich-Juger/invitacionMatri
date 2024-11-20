@@ -14,6 +14,106 @@ body {
   background-color: #ffffff;
 }
 
+/* Estilos generales para el sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Fuera de la pantalla inicialmente */
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(218, 165, 32, 0.8); /* Fondo dorado transparente */
+  color: #ffffff;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+/* Mostrar el sidebar */
+.sidebar.show {
+  left: 0;
+}
+
+/* Encabezado del sidebar */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgba(218, 165, 32, 1); /* Fondo dorado sólido */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-header .logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Enlaces del sidebar */
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-links li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-links li a {
+  display: block;
+  padding: 15px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro */
+  color: rgba(218, 165, 32, 1); /* Color dorado sólido */
+}
+
+/* Botón de hamburguesa */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgb(213, 149, 71); /* Botón dorado sólido */
+  z-index: 1001;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Ocultar el botón cuando el sidebar está activo */
+.hamburger.hidden {
+  opacity: 0;
+  pointer-events: none; /* Desactiva clics mientras está oculto */
+}
+
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+
+
 /* Section Styles */
 .section {
   padding: 40px;
@@ -22,70 +122,6 @@ body {
 }
 
 
-/* parientes*/
-.parent {
-  padding-bottom: 40px;
-}
-
-.parent1 {
-  padding: 10px;
-}
-
-
-/* Sección de Padres y Padrinos */
-.parents-section {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-/* Imagen para "Padres y Padrinos" */
-.parents-image {
-  width: 100%; /* Ocupa el ancho completo */
-  max-width: 500px; /* Tamaño máximo similar a la sección "Vestimenta" */
-  height: auto; /* Mantén la proporción */
-  margin: 20px auto; /* Centra la imagen */
-  display: block; /* Asegura que sea un bloque independiente */
-}
-
-
-/* Fondo para "Padres y Padrinos" */
-/* Sección de padres y padrinos */
-.parents-section {
-  text-align: center;
-  color: #2a6880;
-  padding: 20px;
-}
-
-/* Filas de imágenes */
-.images-row {
-  display: flex;
-  justify-content: center;
-  gap: 150px;
-  margin-bottom: 20px;
-}
-
-/* Íconos de los padres */
-.parent-icon {
-  width: 150px;
-  height: auto;
-  border-radius: 50%;
-  padding: 20px 0 10px;
-
-}
-
-/* Contenedor de información de los padres */
-.parents-info {
-  display: flex;
-  justify-content: space-around;
-  gap: 100px;
-  margin-bottom: 40px;
-}
-
-/* Columnas de información de los padres */
-.column {
-  text-align: center;
-}
-
 /* Títulos de las secciones */
 .section-title {
   font-size: 18px;
@@ -93,31 +129,6 @@ body {
   color: #2a6880;
 }
 
-/* Línea de separación */
-.section-line {
-  width: 60%;
-  max-width: 300px;
-  height: 2px;
-  background-color: #d1a05a; /* Color dorado */
-  border: none;
-  margin: 5px auto 10px;
-}
-
-/* Información de padrinos */
-.godparents-info {
-  margin-top: 30px;
-}
-
-/* Columnas para los nombres de los padrinos */
-.godparents-columns {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-}
-
-.godparents-column {
-  text-align: left;
-}
 
 /* Estilo de los párrafos */
 p {
@@ -127,18 +138,404 @@ p {
   margin: 5px 0;
 }
 
-/* Sección "Nuestra Boda Será el..." */
-.shadow-box {
-  margin-top: 30px;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  color: #2a6880;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: 30px auto;
+
+/* Sección "Padres y Padrinos" */
+.parents-section {
+  position: relative;
+  padding: 60px 20px; /* Espaciado interno */
   text-align: center;
+  color: #2a6880; /* Texto azul elegante */
+  overflow: hidden; /* Asegura que nada se desborde */
 }
+
+/* Fondo animado */
+.parents-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/fondo3.png') no-repeat center center; /* Imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para que ocupe toda la sección */
+  animation: backgroundMove 15s infinite alternate; /* Animación de movimiento */
+  z-index: 0; /* Coloca la imagen detrás del contenido */
+}
+
+/* Animación para la imagen de fondo */
+@keyframes backgroundMove {
+  0% {
+    background-position: center center; /* Posición inicial */
+    transform: scale(1); /* Escala normal */
+  }
+  50% {
+    background-position: top center; /* Desplaza hacia arriba */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  }
+  100% {
+    background-position: center center; /* Vuelve a la posición inicial */
+    transform: scale(1); /* Escala normal */
+  }
+}
+
+/* Contenedor del contenido para fijarlo */
+.parents-section h3,
+.parents-section .parents-godparents-container {
+  position: relative; /* Asegura que el contenido no herede animaciones */
+  z-index: 2; /* Coloca el contenido por encima del fondo animado */
+}
+
+
+/* Contenedor de columnas */
+.parents-godparents-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Espaciado entre columnas */
+  flex-wrap: wrap; /* Asegura que se adapte en pantallas pequeñas */
+}
+
+/* Columnas individuales */
+.parents-column, .godparents-column {
+  flex: 1; /* Ambas columnas ocupan el mismo ancho */
+  max-width: 45%; /* Limita el ancho máximo */
+  padding: 20px;
+  text-align: center; /* Alinea el texto a la izquierda */
+  
+}
+
+
+/* Estilo de los nombres */
+.parents-column p, .godparents-column p {
+  font-family: "Funnel Display", sans-serif;
+  font-size: 18px;
+  color: #5a7d9a;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .parents-godparents-container {
+    flex-direction: column; /* Apila las columnas */
+    gap: 20px; /* Reduce el espaciado */
+  }
+
+  .parents-column, .godparents-column {
+    max-width: 100%; /* Las columnas ocupan todo el ancho */
+  }
+
+  .parents-section h3 {
+    font-size: 36px; /* Reduce el tamaño del título */
+  }
+}
+
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .parents-godparents-container {
+    flex-direction: column; /* Apila las columnas */
+    gap: 20px; /* Reduce el espaciado */
+  }
+
+  .parents-column, .godparents-column {
+    max-width: 100%; /* Las columnas ocupan todo el ancho */
+  }
+
+  .parents-section h3 {
+    font-size: 24px; /* Reduce el tamaño del título */
+  }
+}
+
+/* Estilo para las letras doradas */
+.gold {
+  color: burlywood;
+  font-weight: bold; /* Opcional: para hacerlas destacar más */
+}
+
+
+/* Contenedor principal para padres y padrinos */
+.parents-godparents-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Columnas individuales */
+.parents-column, .godparents-column {
+  flex: 1; /* Ambas columnas ocupan el mismo ancho */
+  text-align: center; /* Alineación del texto a la izquierda */
+  padding: 10px;
+}
+
+/* Títulos */
+.parents-column h2, .godparents-column h2 {
+  color: #2a6880;
+  margin-bottom: 10px;
+}
+
+/* Estilo de los nombres */
+.parents-column p, .godparents-column p {
+  font-size: 18px;
+  color: #5a7d9a;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+
+
+/*nuestra boda será*/
+
+
+/* Estilo para el popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo transparente oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+/* Mostrar popup */
+.popup.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Contenido del popup */
+.popup-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Título del popup */
+.popup-content h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #2a6880;
+  margin-bottom: 20px;
+}
+
+/* Lista de opciones */
+.popup-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popup-content ul li {
+  margin: 10px 0;
+}
+
+.popup-content ul li a {
+  text-decoration: none;
+  color: #2a6880;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.popup-content ul li a:hover {
+  color: burlywood;
+}
+
+/* Botón de cerrar */
+.btn-close {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #eaf4fc;
+  border: 2px solid #b3cde0;
+  border-radius: 25px;
+  color: #5a7d9a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-close:hover {
+  background-color: #d0e4f2;
+  color: #4a6d88;
+}
+
+/* Modal estilo general */
+.calendar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo transparente oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.calendar-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2a6880;
+}
+
+.calendar-options {
+  list-style: none;
+  padding: 0;
+}
+
+.calendar-options li {
+  margin: 10px 0;
+}
+
+.calendar-options a {
+  text-decoration: none;
+  color: #2a6880;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.calendar-options a:hover {
+  color: burlywood;
+}
+
+.close-modal {
+  background-color: #2a6880;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-modal i {
+  font-size: 16px;
+}
+
+.close-modal:hover {
+  background-color: burlywood;
+}
+
+
+/* Estilo para las opciones de calendario */
+.calendar-option {
+  align-items: center;
+  gap: 15px; /* Espaciado entre el icono y el texto */
+}
+
+.icon-calendar {
+  width: 24px; /* Tamaño del icono */
+  height: auto; /* Mantiene la proporción */
+}
+
+
+
+
+
+
+
+
+#nuestra-boda-sera {
+  background-color: #ffffff !important; /* Fondo blanco */
+  padding: 70px 40px;
+  box-shadow: 0 4px 16px rgba(139, 90, 11, 0.319);
+  position: relative; /* Necesario para posicionar la imagen relativa a este contenedor */
+  z-index: 2;
+}
+
+/* Estilo para la flor decorativa */
+.flor-decorativa {
+  position: absolute;
+  bottom: -70px; /* Hace que la flor sobresalga hacia abajo */
+  right: 10px; /* Espaciado desde el lado derecho */
+  width: 170px; /* Tamaño de la flor */
+  height: auto; /* Mantiene la proporción */
+  z-index: 3; /* Asegura que la flor esté encima del contenedor actual */
+  pointer-events: none; /* Evita que interfiera con clics */
+  opacity: 0; /* Inicia invisible */
+  transform: translateY(30px); /* Aparece desplazada hacia abajo */
+  transition: opacity 1s ease-out, transform 4s ease-out; /* Transición suave */
+}
+
+/* Clase activa para la animación */
+.flor-decorativa.active {
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* En posición normal */
+}
+
+/* Animación para la flor decorativa */
+.flor-decorativa {
+  position: absolute;
+  bottom: -70px; /* Hace que la flor sobresalga hacia abajo */
+  right: 10px; /* Espaciado desde el lado derecho */
+  width: 160px; /* Tamaño de la flor */
+  height: auto; /* Mantiene la proporción */
+  z-index: 3; /* Asegura que la flor esté encima del contenedor actual */
+  pointer-events: none; /* Evita que interfiera con clics */
+  animation: petalMovement 4s infinite ease-in-out; /* Animación continua */
+}
+
+/* Keyframes para el movimiento de los pétalos */
+@keyframes petalMovement {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-1deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(1deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-1deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+
+
+
 
 /* Estilo de la fecha */
 .fechaBoda {
@@ -158,86 +555,83 @@ h1, h2 {
   padding-bottom: 10px;
 }
 
-h3, p {
-  font-size: 1.1em;
-  line-height: 1.5;
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 24px;
   color: #2a6880;
   margin-bottom: 15px;
-  font-family: "Funnel Display", sans-serif;
+  letter-spacing: 2px; /* Espaciado entre letras */
+  font-weight: 300; /* Hace las letras más delgadas */
 }
 
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 18px;
+  color: #2a6880;
+  font-weight: 500; /* Hace las letras más delgadas */
+}
+
+
+
+p {
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+}
+
+
 .fechaBoda1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
   font-size: 24px;
   color: burlywood;
+  padding-bottom: 25px;
   
 }
 
 .fechaBoda {
   font-size: 32px;
   color: burlywood;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-/* Estilos para la sección 2 con imagen de fondo */
-.section-2 {
-  position: relative;
-  padding: 40px;
-  text-align: center;
-  color: #ffffff;
-  background-image: url('images/White\ 4.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-}
 
-/* Opcional: superposición semi-transparente */
-.section-2::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
 
-/* Shadow Box para cuadro de texto */
-.shadow-box {
-  padding: 30px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  color: #2a6880;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-/* Botón Estilos */
+/* Sección de botones */
+/* Botón Estándar */
 .btn-standard {
   display: inline-flex;
   align-items: center;
-  padding: 8px 15px;
+  padding: 10px 20px;
   text-decoration: none;
   border: 2px solid #b3cde0;
   border-radius: 25px;
   background-color: #eaf4fc;
   color: #5a7d9a;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  font-family: "Funnel Display", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .btn-standard:hover {
   background-color: #d0e4f2;
   color: #4a6d88;
+  transform: translateY(-2px);
 }
 
-.btn-standard .button-text {
-  font-size: 20px;
-  color: #5a7d9a;
+.btn-standard i {
+  margin-right: 10px;
 }
+
 
 /* Countdown Section */
 #countdown {
@@ -296,13 +690,13 @@ h3, p {
   z-index: -1;
 }
 
-/* Sección inferior */
 .section {
-  position: relative;
-  z-index: 2;
-  background-color: white; /* Contraste para cubrir la imagen */
+  background-color: #ffffff; /* Fondo blanco para todas las secciones */
   padding: 40px;
+  position: relative; /* Evita conflictos con elementos superpuestos */
+  z-index: 1;
 }
+
 
 /* Añadido para ocultar la imagen al cubrirla completamente */
 #nosCasamos:after {
@@ -314,17 +708,6 @@ h3, p {
   height: 100vh; /* Misma altura que el contenedor */
   background-color: white; /* Fondo blanco para cubrir la imagen */
   z-index: 2; /* Asegura que cubra la imagen fija */
-}
-
-
-
-
-
-
-/* nuestra boda será*/
-
-.prueba {
-  padding-top: 200px;
 }
 
 
@@ -385,6 +768,8 @@ h3, p {
 
 
 
+
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
   h1 {
@@ -406,13 +791,81 @@ h3, p {
 
 }
 
+/* Fondo general de la sección "Regalos y Deseos" */
+.regalos-deseos-section {
+  background: url('images/FONDO\ REGALO7.png') no-repeat center center; /* Imagen de fondo */
+  background-size: cover; /* Cubre toda la sección */
+  padding: 60px 20px; /* Espaciado interno */
+  display: flex;
+  gap: 30px; /* Espacio entre las cajas */
+  flex-wrap: wrap; /* Adapta las cajas en pantallas pequeñas */
+  justify-content: center;
+  align-items: flex-start; /* Alinea los cuadros en la parte superior */
+  position: relative; /* Necesario para mantener los cuadros relativos */
+}
+
+/* Estilo de los cuadros transparentes */
+.transparent-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+  border-radius: 10px; /* Esquinas redondeadas */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  max-width: 350px; /* Limita el ancho máximo */
+  width: 100%; /* Asegura que ocupe todo el espacio disponible */
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos internos se apilen verticalmente */
+  justify-content: space-between; /* Distribuye uniformemente el contenido */
+  height: 400px; /* Fija la altura para que todas las cajas sean iguales */
+  width: 400px;
+}
+
+
+/* Botones dentro de los cuadros */
+.btn-standard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 2px solid #b3cde0;
+  border-radius: 25px;
+  background-color: #eaf4fc;
+  color: #5a7d9a;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn-standard:hover {
+  background-color: #d0e4f2;
+  color: #4a6d88;
+  transform: translateY(-2px);
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+  .regalos-deseos-section {
+    flex-direction: column; /* Apila las cajas verticalmente */
+    align-items: center; /* Centra las cajas */
+    gap: 20px;
+  }
+
+  .transparent-box {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto; /* Permite que las cajas se ajusten automáticamente */
+  }
+}
+
 
 
 /* Estilos para la sección de regalos */
 .regalos {
   text-align: center;
-  padding: 20px;
 }
+
 
 /* Estilo del ícono */
 .gift-icon {
@@ -422,6 +875,22 @@ h3, p {
   display: block; /* Asegura que esté en una nueva línea */
 }
 
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Section Styles */
+.section {
+  padding: 40px;
+  text-align: center;
+  max-width: 100%;
+}
+
+
 
 /* Sección del Itinerario */
 #itinerario-section {
@@ -429,6 +898,43 @@ h3, p {
   padding: 40px 20px;
   background-color: #ffffff;
 }
+
+
+/* Botones de navegación */
+.carousel-btn {
+  position: absolute;
+  top: 50%; /* Centrado verticalmente */
+  transform: translateY(-50%);
+  background-color: rgba(42, 104, 128, 0.7); /* Fondo semi-transparente */
+  color: #ffffff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón Anterior */
+.prev-btn {
+  left: 10px; /* Posición a la izquierda */
+}
+
+/* Botón Siguiente */
+.next-btn {
+  right: 10px; /* Posición a la derecha */
+}
+
+/* Hover para los botones */
+.carousel-btn:hover {
+  background-color: rgba(42, 104, 128, 1);
+}
+
 
 /* Contenedor del carrusel */
 .carousel-container {
@@ -454,10 +960,14 @@ h3, p {
 }
 
 .carousel-icon {
-  width: 150px;
+  width: 180px;
   height: auto;
   margin-bottom: 15px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
+
+
 
 /* Pelotitas de navegación */
 .carousel-dots {
@@ -482,21 +992,6 @@ h3, p {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Sección completa que unifica "Con Amor" y el Contador */
 .countdown-love-section {
   height: 600px;
@@ -509,27 +1004,6 @@ h3, p {
   z-index: 2; /* Coloca esta sección por encima de la imagen de fondo */
 }
 
-
-.countdown-love-section h2 {
-  font-family: 'Tangerine', cursive;
-  font-size: 48px;
-  color: #2a6880;
-  margin-bottom: 10px;
-}
-
-.countdown-love-section p {
-  font-size: 1.5em;
-  color: #555555;
-  margin-bottom: 20px;
-  font-family: 'Funnel Display', sans-serif;
-}
-
-/* Contenedor del Contador */
-#countdown-section {
-  padding-bottom: 40px;
-  width: 100%;
-  text-align: center;
-}
 
 .time-part {
   background: #ffffff;
@@ -557,7 +1031,7 @@ h3, p {
   margin-top: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Funnel Display", sans-serif;
 }
 
 /* Ajustes para mayor espacio entre el contador y la foto final */
@@ -576,3 +1050,4 @@ h3, p {
 
 
 /* Ajustes para mayor espacio entre el contador y la foto final
+
