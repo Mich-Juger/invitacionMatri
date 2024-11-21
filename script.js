@@ -62,6 +62,21 @@ function toggleCalendarPopup() {
   popup.classList.toggle('show');
 }
 
+function toggleCalendarPopup() {
+  const popup = document.getElementById("calendar-popup");
+  popup.classList.toggle("hidden"); // Ocultar o mostrar
+  popup.classList.toggle("show");  // Aplica la animación
+}
+
+document.addEventListener("click", function (event) {
+  const popup = document.getElementById("calendar-popup");
+  const isClickInside = popup.contains(event.target) || event.target.closest(".btn-standard");
+
+  if (!isClickInside && popup.classList.contains("show")) {
+    toggleCalendarPopup();
+  }
+});
+
 
 
 // ITINERARIO botones de navegación
@@ -133,71 +148,39 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 
 // CONFIRMACIÓN DE ASISTENCIA
-function confirmAttendance() {
-  const confirmation = document.getElementById("confirmation");
-  confirmation.classList.remove("hidden");
-  confirmation.classList.add("fade-in");
+// Función para mostrar/ocultar el formulario
+function toggleForm() {
+  const form = document.getElementById('attendance-form');
+  form.classList.toggle('hidden'); // Alterna la clase "hidden"
 }
 
-// Animación al hacer scroll para todas las secciones y elementos
-const fadeElements = document.querySelectorAll('.section, .fade-up');
+// Conexión con Google Sheets
+document.getElementById("attendanceGoogleForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Previene el comportamiento normal del formulario
 
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyHxievlTaldTCBquzAK1zOd9oMo6V2EjEC3DlAgkOsTrJQl6WfJNDla65mMeZEOYRa/exec";
+  const formData = new FormData(this);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData,
+    mode: "cors", // Permite solicitudes CORS
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.status === "success") {
+        alert("¡Gracias por confirmar tu asistencia!");
+        this.reset(); // Limpia el formulario después de enviarlo
+        toggleForm(); // Oculta el formulario después de enviar
+      } else {
+        throw new Error(json.message || "Error en el envío.");
+      }
+    })
+    .catch((error) => {
+      alert("Error al enviar la información. Intenta nuevamente.");
+      console.error("Error:", error);
     });
-}, { threshold: 0.1 });
-
-fadeElements.forEach(element => {
-    fadeObserver.observe(element);
 });
-
-
-
-
-// Cambio gradual de opacidad en el fondo al hacer scroll
-window.addEventListener('scroll', () => {
-  const scrollPosition = window.scrollY;
-  document.body.style.setProperty('--scroll-opacity', Math.min(0.15 + scrollPosition / 1000, 0.5));
-});
-
-
-
-// Carrusel
-// Variables principales
-const carousel = document.querySelector('.carousel');
-const carouselItems = document.querySelectorAll('.carousel-item');
-const dots = document.querySelectorAll('.dot');
-let currentIndex = 0;
-
-// Función para actualizar la posición del carrusel
-function updateCarousel() {
-  const offset = -currentIndex * 100; // Calcula el desplazamiento en porcentaje
-  carousel.style.transform = `translateX(${offset}%)`;
-
-  // Actualiza la clase activa de las pelotitas
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
-  });
-}
-
-// Navegar al hacer clic en las pelotitas
-dots.forEach((dot) => {
-  dot.addEventListener('click', () => {
-    currentIndex = parseInt(dot.getAttribute('data-index'), 10);
-    updateCarousel();
-  });
-});
-
-// Inicializa el carrusel en el primer elemento
-updateCarousel();
-
-
-
-
-
 
 
 

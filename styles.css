@@ -46,7 +46,7 @@ body {
 
 .sidebar-header .logo {
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #ffffff;
 }
@@ -81,7 +81,7 @@ body {
 
 .sidebar-links li a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro */
-  color: rgba(218, 165, 32, 1); /* Color dorado sólido */
+  color: rgb(125, 91, 6); /* Color dorado sólido */
 }
 
 /* Botón de hamburguesa */
@@ -89,14 +89,31 @@ body {
   position: fixed;
   top: 20px;
   left: 20px;
-  background: none;
+  background-color: rgba(218, 165, 32, 0.679); /* Fondo dorado */
   border: none;
-  font-size: 24px;
-  color: rgb(213, 149, 71); /* Botón dorado sólido */
-  z-index: 1001;
+  border-radius: 20%; /* Redondear el botón */
+  width: 50px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  transition: background-color 0.3s ease;
 }
+
+/* Hover para el botón */
+.hamburger:hover {
+  background-color: rgba(218, 165, 32, 0.9); /* Fondo un poco más claro */
+}
+
+/* Estilo de las líneas blancas */
+.hamburger .fas {
+  color: #ffffff; /* Líneas blancas */
+  font-size: 24px; /* Tamaño del ícono */
+}
+
 
 /* Ocultar el botón cuando el sidebar está activo */
 .hamburger.hidden {
@@ -1050,4 +1067,89 @@ p {
 
 
 /* Ajustes para mayor espacio entre el contador y la foto final
+
+
+
+/* Formulario oculto */
+.hidden {
+  display: none;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* Estilos de etiquetas y entradas */
+form label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #2a6880;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Botones del formulario */
+form button {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 10px 20px;
+  background-color: #2a6880;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: burlywood;
+}
+
+
+
+
+/* FORMULARIO */
+.hidden {
+  display: none;
+}
+
+.person {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#add-person {
+  display: inline-block;
+  margin: 10px 0;
+  background-color: #eaf4fc;
+  border: 2px solid #b3cde0;
+  border-radius: 25px;
+  color: #5a7d9a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-person:hover {
+  background-color: #d0e4f2;
+  color: #4a6d88;
+}
 

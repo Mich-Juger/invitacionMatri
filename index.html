@@ -82,46 +82,48 @@
   </button>
   
   <!-- Ventana emergente -->
-  <div id="calendar-popup" class="popup hidden">
-    <div class="popup-content">
-      <h3>Agendar en tu calendario</h3>
-      <ul>
-        <li>
-          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z" target="_blank">
-            <div class="calendar-option">
-              <img src="images/google.png" alt="Google Calendar" class="icon-calendar">
-              Google Calendar
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Boda+de+Giovanni+y+Michelle&startdt=2025-05-03T19:00:00&enddt=2025-05-03T23:30:00" target="_blank">
-            <div class="calendar-option">
-              <img src="images/outlook.png" alt="Outlook" class="icon-calendar">
-              Outlook
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://calendar.yahoo.com/?v=60&view=d&type=20&title=Boda+de+Giovanni+y+Michelle&st=20250503T190000Z&et=20250503T233000Z" target="_blank">
-            <div class="calendar-option">
-              <img src="images/yahoo.png" alt="Yahoo Calendar" class="icon-calendar">
-              Yahoo Calendar
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Boda+de+Giovanni+y+Michelle%0ADTSTART:20250503T190000Z%0ADTEND:20250503T233000Z%0AEND:VEVENT%0AEND:VCALENDAR" download="boda-event.ics">
-            <div class="calendar-option">
-              <img src="images/calendar.png" alt="ICS Download" class="icon-calendar">
-              Descargar ICS
-            </div>
-          </a>
-        </li>
-      </ul>
-      <button class="btn-close" onclick="toggleCalendarPopup()">Cerrar</button>
-    </div>
+  <!-- Ventana emergente -->
+<div id="calendar-popup" class="popup hidden">
+  <div class="popup-content">
+    <h3>Agendar en tu calendario</h3>
+    <ul>
+      <li>
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Giovanni+y+Michelle&dates=20250503T190000Z/20250503T233000Z" target="_blank">
+          <div class="calendar-option">
+            <img src="images/google.png" alt="Google Calendar" class="icon-calendar">
+            Google Calendar
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Boda+de+Giovanni+y+Michelle&startdt=2025-05-03T19:00:00&enddt=2025-05-03T23:30:00" target="_blank">
+          <div class="calendar-option">
+            <img src="images/outlook.png" alt="Outlook" class="icon-calendar">
+            Outlook
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://calendar.yahoo.com/?v=60&view=d&type=20&title=Boda+de+Giovanni+y+Michelle&st=20250503T190000Z&et=20250503T233000Z" target="_blank">
+          <div class="calendar-option">
+            <img src="images/yahoo.png" alt="Yahoo Calendar" class="icon-calendar">
+            Yahoo Calendar
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Boda+de+Giovanni+y+Michelle%0ADTSTART:20250503T190000Z%0ADTEND:20250503T233000Z%0AEND:VEVENT%0AEND:VCALENDAR" download="boda-event.ics">
+          <div class="calendar-option">
+            <img src="images/calendar.png" alt="ICS Download" class="icon-calendar">
+            Descargar ICS
+          </div>
+        </a>
+      </li>
+    </ul>
+    <button class="btn-close" onclick="toggleCalendarPopup()">Cerrar</button>
   </div>
+</div>
+      <ul>
   
   
   <!-- Imagen decorativa inferior derecha -->
@@ -151,6 +153,10 @@
       </a>
     </div>
   </div>
+
+
+
+
 
 
 
@@ -273,22 +279,72 @@
 <!-- FIN SECCIÓN: Regalos y Deseos -->
 
 
-<!--CONFIRMA TU ASISTENCIA-->
 
-  <div class="section" id="confirmaTuAsistencia">
-    <h2>Confirma tu Asistencia</h2>
-    <!-- Ícono de confirmación -->
-    <img src="images/confirmasistencia.png" alt="Ícono de Confirmación" class="gift-icon">
-    <p>Completa el formulario para preferencias alimentarias</p>
-    <!-- Enlace para confirmar asistencia -->
-    <a href="https://forms.gle/Brv6eZ4LPeMit9wC8" target="_blank" class="btn-standard">
-      <span class="button-text"><i class="fas fa-check-circle"></i> Confirmar asistencia</span>
-    </a>
-    <div id="confirmation" class="confirmation hidden">
-    </div>
+
+
+
+
+
+
+
+
+<!-- CONFIRMA TU ASISTENCIA -->
+<!-- CONFIRMA TU ASISTENCIA -->
+<div class="section" id="confirmaTuAsistencia">
+  <h2>Confirma tu Asistencia</h2>
+  <!-- Ícono de confirmación -->
+  <img src="images/confirmasistencia.png" alt="Ícono de Confirmación" class="gift-icon">
+  <p>Completa el formulario para preferencias alimentarias</p>
+  <!-- Botón para mostrar el formulario -->
+  <button class="btn-standard" onclick="toggleForm()">Confirmar asistencia</button>
+  
+  <!-- Formulario oculto -->
+  <div id="attendance-form" class="form-container hidden">
+    <form id="attendanceGoogleForm">
+      <div id="person-container">
+        <div class="person">
+          <label for="name-1">Nombre completo:</label>
+          <input type="text" id="name-1" name="name[]" placeholder="Tu nombre..." required>
+          
+          <label for="preference-1">Preferencia alimentaria:</label>
+          <select id="preference-1" name="preference[]" required>
+            <option value="" disabled selected>Selecciona una opción...</option>
+            <option value="Vegetariano">Vegetariano</option>
+            <option value="Vegano">Vegano</option>
+            <option value="Omnívoro">Omnívoro</option>
+            <option value="Otro">Otro (especificar en comentarios)</option>
+          </select>
+        </div>
+      </div>
+      
+      <button type="button" id="add-person" class="btn-standard">+ Agregar persona</button>
+      
+      <label for="comments">Comentarios adicionales:</label>
+      <textarea id="comments" name="comments" placeholder="Escribe aquí..." rows="3"></textarea>
+      
+      <button type="submit" class="btn-standard">Enviar</button>
+      <button type="button" class="btn-close" onclick="toggleForm()">Cerrar</button>
+    </form>
   </div>
+</div>
+<!-- FIN CONFIRMA TU ASISTENCIA -->
 
-<!--FIN CONFIRMA TU ASISTENCIA-->
+<!-- FIN CONFIRMA TU ASISTENCIA -->
+
+
+  
+<!-- FIN CONFIRMA TU ASISTENCIA -->
+
+
+
+
+
+
+
+
+
+
+
 
 
 
