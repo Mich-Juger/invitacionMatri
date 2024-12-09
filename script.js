@@ -17,6 +17,7 @@ function toggleSidebar() {
 
 //NUESTRA BODA ES...
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const flor = document.querySelector(".flor-decorativa");
   const nuestraBodaSection = document.getElementById("nuestra-boda-sera");
@@ -154,33 +155,30 @@ function toggleForm() {
   form.classList.toggle('hidden'); // Alterna la clase "hidden"
 }
 
+
 // Conexión con Google Sheets
-document.getElementById("attendanceGoogleForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Previene el comportamiento normal del formulario
+// Conexión con Google Sheets
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyHxievlTaldTCBquzAK1zOd9oMo6V2EjEC3DlAgkOsTrJQl6WfJNDla65mMeZEOYRa/exec";
-  const formData = new FormData(this);
+document.getElementById('attendanceGoogleForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Evita el envío predeterminado del formulario
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: formData,
-    mode: "cors", // Permite solicitudes CORS
+  // Crear objeto FormData con los datos del formulario
+  var formData = new FormData(this);
+
+  // Enviar los datos a la API de Google Apps Script
+  fetch('https://script.google.com/macros/s/AKfycby1kam-OIAbFfNoUbLTxeLHn6j_ifLpqSZ9dbBCayrPQX6TRIjuC6gf7SIXsuZ9UZ1R/exec', { // Reemplaza con la URL del Web App
+    method: 'POST',
+    body: formData
   })
-    .then((response) => response.json())
-    .then((json) => {
-      if (json.status === "success") {
-        alert("¡Gracias por confirmar tu asistencia!");
-        this.reset(); // Limpia el formulario después de enviarlo
-        toggleForm(); // Oculta el formulario después de enviar
-      } else {
-        throw new Error(json.message || "Error en el envío.");
-      }
-    })
-    .catch((error) => {
-      alert("Error al enviar la información. Intenta nuevamente.");
-      console.error("Error:", error);
-    });
+  .then(response => response.text())
+  .then(data => {
+    alert(data); // Mostrar respuesta de éxito
+    this.reset(); // Reiniciar el formulario
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error al enviar los datos. Inténtalo nuevamente.');
+  });
 });
-
 
 
