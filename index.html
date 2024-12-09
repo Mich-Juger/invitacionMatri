@@ -304,32 +304,29 @@
   <button class="btn-standard" onclick="toggleForm()">Confirmar asistencia</button>
   
   <!-- Formulario oculto -->
-  <div id="attendance-form" class="form-container hidden">
+  <div id="attendance-form" class="form-container">
     <form id="attendanceGoogleForm">
       <div id="person-container">
         <div class="person">
-          <label for="name-1">Nombre completo:</label>
-          <input type="text" id="name-1" name="name[]" placeholder="Tu nombre..." required>
+          <label for="nombre-invitado-1">Nombre completo (Invitado 1):</label>
+          <input type="text" id="nombre-invitado-1" name="Nombre Invitado 1" placeholder="Tu nombre..." required>
           
-          <label for="preference-1">Preferencia alimentaria:</label>
-          <select id="preference-1" name="preference[]" required>
+          <label for="preferencia-1">Preferencia alimentaria (Invitado 1):</label>
+          <select id="preferencia-1" name="Preferencia 1" required>
             <option value="" disabled selected>Selecciona una opción...</option>
-            <option value="Vegetariano">Vegetariano</option>
-            <option value="Vegano">Vegano</option>
-            <option value="Omnívoro">Omnívoro</option>
-            <option value="Otro">Otro (especificar en comentarios)</option>
+            <option value="Vegetariano">Menú Vegetariano</option>
+            <option value="Vegano">Menú Vegano</option>
+            <option value="Omnívoro">Menú Tradicional</option>
           </select>
         </div>
       </div>
-      
       <button type="button" id="add-person" class="btn-standard">+ Agregar persona</button>
-      
       <button type="submit" class="btn-standard">Enviar</button>
-      <button type="button" class="btn-close" onclick="toggleForm()">Cerrar</button>
     </form>
+    
   </div>
-</div>
-<!-- FIN CONFIRMA TU ASISTENCIA -->
+  <!-- FIN CONFIRMA TU ASISTENCIA -->
+
 
 <!-- FIN CONFIRMA TU ASISTENCIA -->
 
