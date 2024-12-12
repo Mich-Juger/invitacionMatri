@@ -148,92 +148,110 @@ function updateCountdown() {
 // Llamar a la función cada segundo para actualizar el contador
 setInterval(updateCountdown, 1000);
 
+
+
+
+
+
 // CONFIRMACIÓN DE ASISTENCIA
-// Función para mostrar/ocultar el formulario
-function toggleForm() {
-  const form = document.getElementById('attendance-form');
-  form.classList.toggle('hidden'); // Alterna la clase "hidden"
-}
 
-// Conexión con Google Sheets
-document.getElementById('attendanceGoogleForm').addEventListener('submit', function (e) {
-  e.preventDefault(); // Evita el envío predeterminado del formulario
 
-  // Crear objeto FormData con los datos del formulario
-  var formData = new FormData(this);
 
-  // Enviar los datos a la API de Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbz1hya8ggcYNF-NvAUr-kPzGHd1CefMOTvTKH7vVCiblLedtvkOMr1qQ5i3Rr20kQRa/exec', {
-    method: 'POST',
-    body: formData
-  })
-    .then(response => response.text())
-    .then(data => {
-      alert("Datos enviados correctamente."); // Mostrar respuesta de éxito
-      this.reset(); // Reiniciar el formulario
-      resetFormState(); // Reiniciar estado del formulario
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error al enviar los datos. Inténtalo nuevamente.');
+
+// Función para inicializar el dropdown de menú personalizado
+// Función para inicializar el dropdown de menú personalizado
+// Función para inicializar el dropdown de menú personalizado
+function setupDropdown(dropdownId, optionsListId, hiddenInputId) {
+  const dropdown = document.getElementById(dropdownId);
+  const optionsList = document.getElementById(optionsListId);
+  const hiddenInput = document.getElementById(hiddenInputId);
+
+  dropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.querySelectorAll(".options-list").forEach((list) => {
+      if (list !== optionsList) list.classList.add("hidden");
     });
-});
+    optionsList.classList.toggle("hidden");
+  });
 
-let personAdded = false; // Controla si el segundo invitado ya fue agregado
+  optionsList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("option")) {
+      dropdown.textContent = e.target.textContent;
+      hiddenInput.value = e.target.getAttribute("data-value");
+      optionsList.classList.add("hidden");
+    }
+  });
 
-document.getElementById('add-person').addEventListener('click', function () {
-  if (!personAdded) {
-    const container = document.getElementById('person-container');
-
-    // Crear campos dinámicos para el segundo invitado
-    const newPerson = document.createElement('div');
-    newPerson.classList.add('person');
-    newPerson.innerHTML = `
-      <label for="nombre-invitado-2">Nombre completo (Invitado 2):</label>
-      <input type="text" id="nombre-invitado-2" name="Nombre Invitado 2" placeholder="Nombre invitado..." required>
-      
-      <label for="preferencia-2">Preferencia alimentaria (Invitado 2):</label>
-      <select id="preferencia-2" name="Preferencia 2" required>
-        <option value="" disabled selected>Selecciona una opción...</option>
-        <option value="Vegetariano">Menú Vegetariano</option>
-        <option value="Vegano">Menú Vegano</option>
-        <option value="Omnívoro">Menú Tradicional</option>
-      </select>
-    `;
-
-    container.appendChild(newPerson); // Agregar campos al formulario
-    personAdded = true; // Bloquear futuros añadidos
-
-    // Ocultar el botón "Agregar persona" una vez que se alcanza el máximo
-    document.getElementById('add-person').style.display = 'none';
-  }
-});
-
-// Función para reiniciar el formulario al enviar
-function resetFormState() {
-  personAdded = false; // Restablecer el estado
-  document.getElementById('add-person').style.display = 'inline-block'; // Mostrar botón
-  const secondPerson = document.getElementById('nombre-invitado-2')?.parentElement;
-  if (secondPerson) secondPerson.remove(); // Eliminar campos del segundo invitado
+  document.addEventListener("click", () => optionsList.classList.add("hidden"));
 }
 
-// Validación antes del envío del formulario
-document.getElementById('attendanceGoogleForm').addEventListener('submit', function (e) {
-  const nombre1 = document.getElementById('nombre-invitado-1').value.trim();
-  const preferencia1 = document.getElementById('preferencia-1').value.trim();
+// Configurar dropdown inicial para el primer invitado
+setupDropdown("selectedOption1", "optionsList1", "hiddenInput1");
 
-  const nombre2 = document.getElementById('nombre-invitado-2') ? document.getElementById('nombre-invitado-2').value.trim() : '';
-  const preferencia2 = document.getElementById('preferencia-2') ? document.getElementById('preferencia-2').value.trim() : '';
+// Mostrar/Ocultar formulario
+function toggleForm() {
+  const formContainer = document.getElementById("attendance-form");
+  formContainer.classList.toggle("hidden");
+}
 
-  if (!nombre1 || !preferencia1) {
-    alert("Debes completar los datos del primer invitado.");
-    e.preventDefault();
+// Función para agregar un segundo invitado dinámicamente
+let personAdded = false;
+document.getElementById("add-person").addEventListener("click", function () {
+  if (personAdded) {
+    alert("Solo puedes agregar un máximo de 2 personas.");
     return;
   }
 
-  if (nombre2 && !preferencia2) {
-    alert("Debes completar la preferencia alimentaria del segundo invitado.");
-    e.preventDefault();
-    return;
-  }
+  const guestsContainer = document.getElementById("guests-container");
+
+  // Crear el nuevo invitado
+  const newPerson = document.createElement("div");
+  newPerson.classList.add("person");
+  newPerson.innerHTML = `
+    <label for="nombre-invitado-2">Nombre completo:</label>
+    <input type="text" id="nombre-invitado-2" name="Nombre Invitado 2" placeholder="" required>
+    <label>Menú:</label>
+    <div class="custom-dropdown">
+      <div class="dropdown-wrapper">
+        <div class="selected-option" id="selectedOption2">Selecciona una opción...</div>
+        <ul class="options-list hidden" id="optionsList2">
+          <li class="option" data-value="Vegetariano">Menú Vegetariano</li>
+          <li class="option" data-value="Vegano">Menú Vegano</li>
+          <li class="option" data-value="Omnívoro">Menú Tradicional</li>
+        </ul>
+      </div>
+      <input type="hidden" id="hiddenInput2" name="Preferencia 2" required>
+    </div>
+  `;
+
+  // Agregar el nuevo invitado al contenedor
+  guestsContainer.appendChild(newPerson);
+
+  // Inicializar dropdown del segundo invitado
+  setupDropdown("selectedOption2", "optionsList2", "hiddenInput2");
+
+  personAdded = true; // Limitar a un solo invitado adicional
+  this.style.display = "none"; // Ocultar el botón
+});
+
+// Enviar datos a Google Sheets
+document.getElementById("attendanceGoogleForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbxdreE61eNx7b5Q0sNXheotnOtC3KAX6Tuzezrg6eScGbNJmBUoADv16XlzuoIJu2Hv/exec", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      alert("Datos enviados correctamente.");
+      this.reset();
+      location.reload(); // Recargar formulario después de envío
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Error al enviar los datos. Inténtalo nuevamente.");
+    });
 });

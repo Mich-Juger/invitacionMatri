@@ -294,41 +294,51 @@
 
 
 <!-- CONFIRMA TU ASISTENCIA -->
+
 <!-- CONFIRMA TU ASISTENCIA -->
 <div class="section" id="confirmaTuAsistencia">
   <h2>Confirma tu Asistencia</h2>
-  <!-- Ícono de confirmación -->
   <img src="images/confirmasistencia.png" alt="Ícono de Confirmación" class="gift-icon">
   <p>Completa el formulario para preferencias alimentarias</p>
-  <!-- Botón para mostrar el formulario -->
   <button class="btn-standard" onclick="toggleForm()">Confirmar asistencia</button>
   
   <!-- Formulario oculto -->
-  <div id="attendance-form" class="form-container">
+  <div id="attendance-form" class="form-container hidden">
+    <button class="close-form-btn" onclick="toggleForm()">&#10005;</button>
     <form id="attendanceGoogleForm">
-      <div id="person-container">
+      <!-- Contenedor de invitados -->
+      <div id="guests-container">
+        <!-- Primer invitado -->
         <div class="person">
-          <label for="nombre-invitado-1">Nombre completo (Invitado 1):</label>
-          <input type="text" id="nombre-invitado-1" name="Nombre Invitado 1" placeholder="Tu nombre..." required>
-          
-          <label for="preferencia-1">Preferencia alimentaria (Invitado 1):</label>
-          <select id="preferencia-1" name="Preferencia 1" required>
-            <option value="" disabled selected>Selecciona una opción...</option>
-            <option value="Vegetariano">Menú Vegetariano</option>
-            <option value="Vegano">Menú Vegano</option>
-            <option value="Omnívoro">Menú Tradicional</option>
-          </select>
+          <label for="nombre-invitado-1">Nombre completo:</label>
+          <input type="text" id="nombre-invitado-1" name="Nombre Invitado 1" placeholder="" required>
+          <label>Menú:</label>
+          <div class="custom-dropdown">
+            <div class="dropdown-wrapper">
+              <div class="selected-option" id="selectedOption1">Selecciona una opción...</div>
+              <ul class="options-list hidden" id="optionsList1">
+                <li class="option" data-value="Vegetariano">Menú Vegetariano</li>
+                <li class="option" data-value="Vegano">Menú Vegano</li>
+                <li class="option" data-value="Omnívoro">Menú Tradicional</li>
+              </ul>
+            </div>
+            <input type="hidden" id="hiddenInput1" name="Preferencia 1" required>
+          </div>
         </div>
       </div>
-      <button type="button" id="add-person" class="btn-standard">+ Agregar persona</button>
-      <button type="submit" class="btn-standard">Enviar</button>
+      
+      <!-- Botones fijos -->
+      <div class="form-buttons">
+        <button type="button" id="add-person" class="btn-standard">+ Agregar persona</button>
+        <button type="submit" class="btn-standard submit-btn">Enviar</button>
+      </div>
     </form>
-    
   </div>
-  <!-- FIN CONFIRMA TU ASISTENCIA -->
+</div>
 
-
-<!-- FIN CONFIRMA TU ASISTENCIA -->
+  
+  
+</div>
 
 
   

@@ -679,8 +679,10 @@ p {
 }
 
 .label {
-  font-size: 1em;
-  color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7em;
+  color: #4a6d88;
+  
 }
 
 /* Overlay Content for "Nos Casamos" */
@@ -1054,14 +1056,7 @@ p {
   font-family: 'Funnel Display', sans-serif;
 }
 
-.label {
-  font-size: 12px;
-  color: #555555;
-  margin-top: 5px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: "Funnel Display", sans-serif;
-}
+
 
 /* Ajustes para mayor espacio entre el contador y la foto final */
 .celebration-video {
@@ -1078,7 +1073,7 @@ p {
 }
 
 
-/* Ajustes para mayor espacio entre el contador y la foto final
+/* Fin Ajustes para mayor espacio entre el contador y la foto final
 
 
 
@@ -1087,24 +1082,6 @@ p {
   display: none;
 }
 
-/* Contenedor del formulario */
-.form-container {
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: left;
-}
-
-/* Estilos de etiquetas y entradas */
-form label {
-  display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: #2a6880;
-}
 
 form input, form select, form textarea {
   width: 100%;
@@ -1132,34 +1109,13 @@ form button:hover {
 }
 
 
-
-
 /* FORMULARIO */
 .hidden {
   display: none;
 }
 
-.form-container {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-#add-person {
-  display: inline-block;
-  margin: 10px 0;
-  background-color: #eaf4fc;
-  border: 2px solid #b3cde0;
-  border-radius: 25px;
-  color: #5a7d9a;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
 
 #add-person:hover {
   background-color: #d0e4f2;
@@ -1170,30 +1126,161 @@ form button:hover {
 label {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  color: #444444;
+  color: #4a6d88;
   margin-bottom: 5px;
   display: block;
 }
 
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: "Arial", sans-serif;
-  font-size: 14px;
-  color: #333;
-  background-color: #f9f9f9;
-  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
-}
 
 .person {
   margin-bottom: 15px;
   border: none;
   padding: 10px 15px;
-  background-color: #fafafa;
   border-radius: 8px;
 }
+
+/* Estilo del menú desplegable personalizado */
+.custom-dropdown {
+  position: relative;
+  margin-bottom: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.selected-option {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  
+}
+
+.options-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.option {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #5a7d9a;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Contenedor del formulario sin bordes */
+.form-container {
+  margin-top: 20px;
+  padding: 25px; /* Espacio interno */
+  background: linear-gradient(145deg, #fffaf5, #fdf1eb); /* Fondo pastel suave */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1), /* Sombra exterior */
+    inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interior ligera */
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover: resalta ligeramente */
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Inputs y selects sin bordes visibles */
+form input, form select, form textarea {
+  background-color: #fffdfb; /* Fondo suave */
+  border-radius: 8px; /* Bordes suaves */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  transition: box-shadow 0.3s ease;
+}
+
+
+/* Botones sin bordes */
+form button {
+  background-color: #f4bfb3; /* Rosa romántico */
+  color: #ffffff;
+  border: none; /* Sin borde */
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+  background-color: #e89c94; /* Rosa más intenso al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón agregar persona */
+#add-person {
+  background-color: #fdeee4; /* Fondo durazno pastel */
+  color: #5a7d9a; /* Azul suave */
+  border: none; /* Sin borde */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#add-person:hover {
+  background-color: #f4d3b3; /* Durazno más intenso */
+  color: #ffffff;
+}
+
+/* Fondo de la página */
+body {
+  background: linear-gradient(to bottom, #fff8f4, #fdf1eb); /* Degradado muy suave */
+  background-attachment: fixed;
+}
+
+
+
+/* Estilo del botón de cerrar */
+.close-form-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #6587dcbe; /* Color de la X */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-form-btn:hover {
+  color: #eb7b73; /* Color rojo al pasar el mouse */
+}
+
 
