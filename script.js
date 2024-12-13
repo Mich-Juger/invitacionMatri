@@ -215,9 +215,9 @@ document.getElementById("add-person").addEventListener("click", function () {
       <div class="dropdown-wrapper">
         <div class="selected-option" id="selectedOption2">Selecciona una opción...</div>
         <ul class="options-list hidden" id="optionsList2">
-          <li class="option" data-value="Vegetariano">Menú Vegetariano</li>
-          <li class="option" data-value="Vegano">Menú Vegano</li>
-          <li class="option" data-value="Omnívoro">Menú Tradicional</li>
+          <li class="option" data-value="Menú Vegetariano">Menú Vegetariano</li>
+          <li class="option" data-value=" Menú Vegano">Menú Vegano</li>
+          <li class="option" data-value="Menú Tradicional">Menú Tradicional</li>
         </ul>
       </div>
       <input type="hidden" id="hiddenInput2" name="Preferencia 2" required>
