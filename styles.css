@@ -157,12 +157,14 @@ p {
 
 
 /* Sección "Padres y Padrinos" */
-.parents-section {
+.section.parents-section {
   position: relative;
   padding: 60px 20px; /* Espaciado interno */
   text-align: center;
   color: #2a6880; /* Texto azul elegante */
-  overflow: hidden; /* Asegura que nada se desborde */
+  overflow: visible; /* Asegura que nada se desborde */
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(139, 90, 11, 0.219);
 }
 
 /* Fondo animado */
@@ -175,7 +177,6 @@ p {
   height: 100%;
   background: url('images/') no-repeat center center; /* Imagen de fondo */
   background-size: cover; /* Ajusta la imagen para que ocupe toda la sección */
-  animation: backgroundMove 15s infinite alternate; /* Animación de movimiento */
   z-index: 0; /* Coloca la imagen detrás del contenido */
 }
 
@@ -199,7 +200,7 @@ p {
 .parents-section h3,
 .parents-section .parents-godparents-container {
   position: relative; /* Asegura que el contenido no herede animaciones */
-  z-index: 2; /* Coloca el contenido por encima del fondo animado */
+  z-index: 30; /* Coloca el contenido por encima del fondo animado */
 }
 
 
@@ -501,9 +502,9 @@ p {
 
 .flor-decorativa-izquierda {
   position: absolute;
-  top: -220px; /* Asegura que esté visible en la parte superior */
+  bottom: -60px; /* Asegura que esté visible en la parte superior */
   left: 0; /* Asegura que esté visible en la parte izquierda */
-  width: 280px; /* Ajusta el tamaño */
+  width: 260px; /* Ajusta el tamaño */
   height: auto; /* Mantiene la proporción */
   z-index: 10; /* Asegura que esté encima de otros elementos */
   background-color: #ffffff00;
@@ -674,7 +675,7 @@ p {
 }
 
 .number {
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   text-align: center;
 
@@ -703,8 +704,8 @@ p {
   flex-direction: column; /* Alinea los hijos (número y etiqueta) verticalmente */
   justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
-  width: 80px; /* Ancho fijo para cada contenedor */
-  height: 80px; /* Altura fija */
+  width: 70px; /* Ancho fijo para cada contenedor */
+  height: 70px; /* Altura fija */
   background-color: #f7f7f7; /* Fondo claro */
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
@@ -721,7 +722,7 @@ p {
 
 /* Estilo de la etiqueta (Días, Horas, Minutos, Segundos) */
 .time-part .label {
-  font-size: 0.9rem; /* Tamaño de la etiqueta */
+  font-size: 0.8rem; /* Tamaño de la etiqueta */
   color: #333; /* Color oscuro */
   margin-top: 5px; /* Espacio entre número y etiqueta */
 }
@@ -742,6 +743,7 @@ p {
   width: 100%;
   height: auto;
   max-height: 100vh;
+  max-width: 100vw;
   object-fit: cover;
 }
 
@@ -890,7 +892,6 @@ p {
   flex-direction: column; /* Asegura que los elementos internos se apilen verticalmente */
   justify-content: space-between; /* Distribuye uniformemente el contenido */
   height: 400px; /* Fija la altura para que todas las cajas sean iguales */
-  width: 400px;
 }
 
 
@@ -1082,7 +1083,7 @@ p {
   background: #ffffff;
   border-radius: 10px;
   padding: 15px 20px;
-  width: 80px;
+  width: 70px;
   box-shadow: 0 4px 10px rgba(42, 104, 128, 0.2);
   transition: transform 0.3s;
 }
@@ -1338,8 +1339,8 @@ body {
 
 .time-part {
   border-radius: 10px;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
