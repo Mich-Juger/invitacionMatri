@@ -52,23 +52,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Fecha de la boda
-const weddingDate = new Date('2025-05-03T00:00:00');
+const weddingDate = new Date('2025-05-03T18:00:00'); // Fecha ajustada para iniciar a las 18:00 hrs
 
 // Nuestra boda Será
 
 // Función para alternar el popup
-// Función para mostrar u ocultar el popup
-function toggleCalendarPopup() {
-  const popup = document.getElementById('calendar-popup');
-  popup.classList.toggle('show');
-}
-
 function toggleCalendarPopup() {
   const popup = document.getElementById("calendar-popup");
   popup.classList.toggle("hidden"); // Ocultar o mostrar
   popup.classList.toggle("show");  // Aplica la animación
 }
 
+// Escucha los clics en el documento para cerrar el popup si haces clic fuera de él
 document.addEventListener("click", function (event) {
   const popup = document.getElementById("calendar-popup");
   const isClickInside = popup.contains(event.target) || event.target.closest(".btn-standard");
@@ -77,6 +72,10 @@ document.addEventListener("click", function (event) {
     toggleCalendarPopup();
   }
 });
+
+// Mostrar la fecha en la consola (opcional para verificar)
+console.log("Fecha de la boda:", weddingDate.toString());
+
 
 
 
@@ -155,11 +154,6 @@ setInterval(updateCountdown, 1000);
 
 // CONFIRMACIÓN DE ASISTENCIA
 
-
-
-
-// Función para inicializar el dropdown de menú personalizado
-// Función para inicializar el dropdown de menú personalizado
 // Función para inicializar el dropdown de menú personalizado
 function setupDropdown(dropdownId, optionsListId, hiddenInputId) {
   const dropdown = document.getElementById(dropdownId);
