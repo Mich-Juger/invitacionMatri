@@ -14,11 +14,19 @@ body {
   background-color: #ffffff;
 }
 
+.page-container {
+  max-width: 800px;
+  margin: auto;
+  background: linear-gradient(to bottom, #fff8f4, #fdf1eb); /* Degradado muy suave */
+  background-attachment: fixed;
+  position: relative;
+}
+
 /* Estilos generales para el sidebar */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px; /* Fuera de la pantalla inicialmente */
+  display: none; /* Fuera de la pantalla inicialmente */
   width: 250px;
   height: 100vh;
   background-color: rgba(218, 165, 32, 0.8); /* Fondo dorado transparente */
@@ -31,7 +39,7 @@ body {
 
 /* Mostrar el sidebar */
 .sidebar.show {
-  left: 0;
+  display: block;
 }
 
 /* Encabezado del sidebar */
@@ -756,7 +764,7 @@ p {
 
 /* Imagen fija */
 #nosCasamos img {
-  position: fixed; /* Permanece fija al hacer scroll */
+  position: absolute; /* Permanece fija al hacer scroll */
   top: 0;
   left: 0;
   width: 100%;
@@ -1276,13 +1284,6 @@ form button:hover {
   background-color: #f4d3b3; /* Durazno más intenso */
   color: #ffffff;
 }
-
-/* Fondo de la página */
-body {
-  background: linear-gradient(to bottom, #fff8f4, #fdf1eb); /* Degradado muy suave */
-  background-attachment: fixed;
-}
-
 
 
 /* Estilo del botón de cerrar */
